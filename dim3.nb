@@ -1,0 +1,1182 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     49346,       1174]
+NotebookOptionsPosition[     48351,       1150]
+NotebookOutlinePosition[     48743,       1166]
+CellTagsIndexPosition[     48700,       1163]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Funkcija", ",", 
+    RowBox[{
+    "ki", " ", "enkrat", " ", "izbere", " ", "naklju\[CHacek]ne", " ", 
+     "parametre", " ", "in", " ", "preveri", " ", "dopustnost", " ", "LP"}]}],
+    "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"TestOneInstance", "[", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+       "u1", ",", "u2", ",", "u3", ",", "q", ",", "\[IndentingNewLine]", "xs",
+         ",", "ys", ",", "zs", ",", "\[IndentingNewLine]", "vars", ",", 
+        "\[IndentingNewLine]", "boundaryConstraints", ",", 
+        "\[IndentingNewLine]", "monotoneConstraints", ",", 
+        "\[IndentingNewLine]", "volumeConstraints", ",", 
+        "\[IndentingNewLine]", "boundsConstraints", ",", 
+        "\[IndentingNewLine]", "prescribedConstraint", ",", 
+        "\[IndentingNewLine]", "constraints", ",", "\[IndentingNewLine]", 
+        "sol"}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{"Naklju\[CHacek]ni", " ", "parametri", " ", "v", " ", 
+        RowBox[{"(", 
+         RowBox[{"0", ",", "1"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"u1", "=", 
+        RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"u2", "=", 
+        RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"u3", "=", 
+        RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"q", "=", 
+        RowBox[{"RandomReal", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Max", "[", 
+            RowBox[{
+             RowBox[{"u1", "+", "u2", "+", "u3", "-", "2"}], ",", "0"}], 
+            "]"}], ",", 
+           RowBox[{"Min", "[", 
+            RowBox[{"u1", ",", "u2", ",", "u3"}], "]"}]}], "}"}], "]"}]}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"xs", "=", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "u1", ",", "1"}], "}"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"ys", "=", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "u2", ",", "1"}], "}"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"zs", "=", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "u3", ",", "1"}], "}"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Spremenljivke", " ", "c_", 
+          RowBox[{"{", "ijk", "}"}]}], "=", 
+         RowBox[{"C", 
+          RowBox[{"(", 
+           RowBox[{"x_i", ",", "y_j", ",", "z_k"}], ")"}]}]}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"vars", "=", 
+        RowBox[{"Flatten", "@", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"c", "[", 
+            RowBox[{"i", ",", "j", ",", "k"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "3"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "3"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "3"}], "}"}]}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"(", "1", ")"}], " ", "Robni", " ", "pogoji"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"boundaryConstraints", "=", 
+        RowBox[{"Flatten", "@", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{"C", "=", "0"}], ",", 
+            RowBox[{
+            "ko", " ", "je", " ", "katera", " ", "koli", " ", "koordinata", " ",
+              "0"}]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"1", ",", "j", ",", "k"}], "]"}], "==", "0"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "3"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "3"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", "1", ",", "k"}], "]"}], "==", "0"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "3"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "3"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", "j", ",", "1"}], "]"}], "==", "0"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "3"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "3"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Margine", ":", 
+               RowBox[{"C", 
+                RowBox[{"(", 
+                 RowBox[{"x", ",", "1", ",", "1"}], ")"}]}]}], "=", "x"}], ",", 
+             RowBox[{
+              RowBox[{"C", 
+               RowBox[{"(", 
+                RowBox[{"1", ",", "y", ",", "1"}], ")"}]}], "=", "y"}], ",", 
+             RowBox[{
+              RowBox[{"C", 
+               RowBox[{"(", 
+                RowBox[{"1", ",", "1", ",", "z"}], ")"}]}], "=", "z"}]}], 
+            "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", "3", ",", "3"}], "]"}], "==", 
+              RowBox[{"xs", "[", 
+               RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "3"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"3", ",", "j", ",", "3"}], "]"}], "==", 
+              RowBox[{"ys", "[", 
+               RowBox[{"[", "j", "]"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "3"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"3", ",", "3", ",", "k"}], "]"}], "==", 
+              RowBox[{"zs", "[", 
+               RowBox[{"[", "k", "]"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "3"}], "}"}]}], "]"}]}], "}"}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"(", "2", ")"}], " ", "Monotonost", " ", "v", " ", "vsaki", " ",
+          "koordinati"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"monotoneConstraints", "=", 
+        RowBox[{"Flatten", "@", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", "j", ",", "k"}], "]"}], "<=", 
+              RowBox[{"c", "[", 
+               RowBox[{
+                RowBox[{"i", "+", "1"}], ",", "j", ",", "k"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", "2"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "1", ",", "3"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "1", ",", "3"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", "j", ",", "k"}], "]"}], "<=", 
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", 
+                RowBox[{"j", "+", "1"}], ",", "k"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", "3"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "1", ",", "2"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "1", ",", "3"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", "j", ",", "k"}], "]"}], "<=", 
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", "j", ",", 
+                RowBox[{"k", "+", "1"}]}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", "3"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "1", ",", "3"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "1", ",", "2"}], "}"}]}], "]"}]}], "}"}]}]}], 
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", "3", ")"}], " ", "3"}], "-", 
+         RowBox[{"nara\[SHacek]\[CHacek]anje", ":", " ", 
+          RowBox[{
+           RowBox[{"C", "-", 
+            RowBox[{
+            "volumna", " ", "vsake", " ", "male", " ", "kocke", " ", "je"}]}],
+            "\[GreaterEqual]", "0"}]}]}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"volumeConstraints", "=", 
+        RowBox[{"Flatten", "@", 
+         RowBox[{"Table", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"c", "[", 
+              RowBox[{
+               RowBox[{"i", "+", "1"}], ",", 
+               RowBox[{"j", "+", "1"}], ",", 
+               RowBox[{"k", "+", "1"}]}], "]"}], "\[IndentingNewLine]", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{
+               RowBox[{"i", "+", "1"}], ",", 
+               RowBox[{"j", "+", "1"}], ",", "k"}], "]"}], 
+             "\[IndentingNewLine]", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{
+               RowBox[{"i", "+", "1"}], ",", "j", ",", 
+               RowBox[{"k", "+", "1"}]}], "]"}], "\[IndentingNewLine]", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"i", ",", 
+               RowBox[{"j", "+", "1"}], ",", 
+               RowBox[{"k", "+", "1"}]}], "]"}], "\[IndentingNewLine]", "+", 
+             RowBox[{"c", "[", 
+              RowBox[{
+               RowBox[{"i", "+", "1"}], ",", "j", ",", "k"}], "]"}], 
+             "\[IndentingNewLine]", "+", 
+             RowBox[{"c", "[", 
+              RowBox[{"i", ",", 
+               RowBox[{"j", "+", "1"}], ",", "k"}], "]"}], 
+             "\[IndentingNewLine]", "+", 
+             RowBox[{"c", "[", 
+              RowBox[{"i", ",", "j", ",", 
+               RowBox[{"k", "+", "1"}]}], "]"}], "\[IndentingNewLine]", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"i", ",", "j", ",", "k"}], "]"}]}], ">=", "0"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", "2"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "1", ",", "2"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "1", ",", "2"}], "}"}]}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", "4", ")"}], " ", "c_", 
+           RowBox[{"{", "ijk", "}"}]}], "\[Element]", 
+          RowBox[{"[", 
+           RowBox[{"0", ",", "1"}], "]"}]}], "\[Dash]", 
+         RowBox[{
+         "dodatna", " ", "naravna", " ", "omejitev", " ", "za", " ", 
+          "kopulo"}]}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"boundsConstraints", "=", 
+        RowBox[{"Thread", "[", 
+         RowBox[{"0", "<=", "vars", "<=", "1"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"(", "5", ")"}], " ", "Predpisana", " ", "vrednost", " ", 
+         "v", " ", "to\[CHacek]ki", " ", 
+         RowBox[{"(", 
+          RowBox[{"u1", ",", "u2", ",", "u3"}], ")"}]}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"prescribedConstraint", "=", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"c", "[", 
+           RowBox[{"2", ",", "2", ",", "2"}], "]"}], "==", "q"}], ")"}]}], ";",
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"Vse", " ", "omejitve", " ", "skupaj"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"constraints", "=", 
+        RowBox[{"Join", "[", "\[IndentingNewLine]", 
+         RowBox[{
+         "boundaryConstraints", ",", "\[IndentingNewLine]", 
+          "monotoneConstraints", ",", "\[IndentingNewLine]", 
+          "volumeConstraints", ",", "\[IndentingNewLine]", 
+          "boundsConstraints", ",", "\[IndentingNewLine]", 
+          RowBox[{"{", "prescribedConstraint", "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"Linearni", " ", 
+         RowBox[{"program", ":", " ", 
+          RowBox[{
+          "max", " ", "0", " ", "pri", " ", "zgornjih", " ", "pogojih"}]}]}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"sol", "=", 
+        RowBox[{"Quiet", "@", 
+         RowBox[{"Check", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"LinearOptimization", "[", "\[IndentingNewLine]", 
+            RowBox[{
+            "0", ",", "\[IndentingNewLine]", "constraints", ",", 
+             "\[IndentingNewLine]", "vars", ",", 
+             "\[IndentingNewLine]", "\"\<PrimalMinimizer\>\"", " ", ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Method", "->", "\"\<Simplex\>\""}]}], "]"}], ",", 
+           "\[IndentingNewLine]", "$Failed"}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"<|", 
+        RowBox[{
+         RowBox[{"\"\<u1\>\"", "->", "u1"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"\"\<u2\>\"", "->", "u2"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"\"\<u3\>\"", "->", "u3"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"\"\<q\>\"", "->", "q"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"\"\<FeasibleQ\>\"", "->", 
+          RowBox[{"(", 
+           RowBox[{"sol", "=!=", "$Failed"}], ")"}]}], ",", 
+         RowBox[{"\"\<Solution\>\"", "->", "sol"}]}], "|>"}]}]}], "]"}]}], 
+   "\n"}]}]], "Input",
+ CellChangeTimes->{{3.974026828957852*^9, 3.9740268289630117`*^9}, {
+  3.9740323904626293`*^9, 3.974032412540453*^9}, {3.9740324479285307`*^9, 
+  3.974032566585545*^9}, {3.974032662594751*^9, 3.974032828968099*^9}, {
+  3.9740328929589977`*^9, 3.974032894544743*^9}, {3.974032961615745*^9, 
+  3.9740329759363737`*^9}, {3.975760169689974*^9, 3.9757601707065487`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"a4217e7c-04f5-4a88-a73f-11ffc10cae8d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"TestMany", "[", 
+    RowBox[{"n_Integer", ":", "100"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"results", ",", "successCount", ",", "failCount"}], "}"}], ",", 
+     
+     RowBox[{
+      RowBox[{"results", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"TestOneInstance", "[", "]"}], ",", "n"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"successCount", "=", 
+       RowBox[{"Count", "[", 
+        RowBox[{"results", ",", 
+         RowBox[{"assoc_", "/;", 
+          RowBox[{"assoc", "[", "\"\<FeasibleQ\>\"", "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"failCount", "=", 
+       RowBox[{"n", "-", "successCount"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<TotalRuns\>\"", "->", "n"}], ",", 
+        RowBox[{"\"\<Successes\>\"", "->", "successCount"}], ",", 
+        RowBox[{"\"\<Failures\>\"", "->", "failCount"}]}], "|>"}]}]}], 
+    "]"}]}], "\n", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Za\[ZHacek]enemo", " ", "za", " ", "100", " ", "poskusov"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"TestMany", "[", "100", "]"}], "\n"}], "Input",
+ CellChangeTimes->{
+  3.9740269354478817`*^9, {3.974032315819508*^9, 3.974032315994618*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"b230a367-f9c2-4717-adfa-7cf31c505893"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"TotalRuns\"\>", "\[Rule]", "100"}], ",", 
+   RowBox[{"\<\"Successes\"\>", "\[Rule]", "100"}], ",", 
+   RowBox[{"\<\"Failures\"\>", "\[Rule]", "0"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.9740269367176332`*^9, 3.9740323183596563`*^9, 
+  3.974032858451317*^9, 3.974032897577127*^9, 3.974032984841565*^9, 
+  3.9757601846348267`*^9, 3.97590852229561*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"b2975429-eab9-4209-97e7-1d576717d1f6"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"43308c80-13df-4186-9269-f699dd67afba"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Preverjanje", " ", "dopustnosti", " ", "LP", " ", "za", " ", "3"}], "-", 
+    
+    RowBox[{
+    "kopulo", " ", "z", " ", "DVEMA", " ", "predpisanima", " ", 
+     "to\[CHacek]kama"}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"TestTwoPointsOneInstance", "[", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+        "u1", ",", "u2", ",", "u3", ",", "v1", ",", "v2", ",", "v3", ",", 
+         "\[IndentingNewLine]", "q1", ",", "q2", ",", "\[IndentingNewLine]", 
+         "xs", ",", "ys", ",", "zs", ",", "\[IndentingNewLine]", "iu", ",", 
+         "ju", ",", "ku", ",", "iv", ",", "jv", ",", "kv", ",", 
+         "\[IndentingNewLine]", "vars", ",", "\[IndentingNewLine]", 
+         "boundaryConstraints", ",", "\[IndentingNewLine]", 
+         "monotoneConstraints", ",", "\[IndentingNewLine]", 
+         "volumeConstraints", ",", "\[IndentingNewLine]", "boundsConstraints",
+          ",", "\[IndentingNewLine]", "prescribedConstraints", ",", 
+         "\[IndentingNewLine]", "constraints", ",", "\[IndentingNewLine]", 
+         "sol"}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"u1", "=", 
+         RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"u2", "=", 
+         RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"u3", "=", 
+         RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"v1", "=", 
+         RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"v2", "=", 
+         RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"v3", "=", 
+         RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "V", " ", "vsaki", " ", "koordinati", " ", "zgradimo", " ", 
+          "mre\[ZHacek]o", " ", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "min", ",", "max", ",", "1"}], "}"}]}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"xs", "=", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"Min", "[", 
+            RowBox[{"u1", ",", "v1"}], "]"}], ",", 
+           RowBox[{"Max", "[", 
+            RowBox[{"u1", ",", "v1"}], "]"}], ",", "1"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"ys", "=", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"Min", "[", 
+            RowBox[{"u2", ",", "v2"}], "]"}], ",", 
+           RowBox[{"Max", "[", 
+            RowBox[{"u2", ",", "v2"}], "]"}], ",", "1"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"zs", "=", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"Min", "[", 
+            RowBox[{"u3", ",", "v3"}], "]"}], ",", 
+           RowBox[{"Max", "[", 
+            RowBox[{"u3", ",", "v3"}], "]"}], ",", "1"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Spremenljivke", " ", "c_", 
+           RowBox[{"{", "ijk", "}"}]}], "=", 
+          RowBox[{"C", 
+           RowBox[{"(", 
+            RowBox[{"x_i", ",", "y_j", ",", "z_k"}], ")"}]}]}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"vars", "=", 
+         RowBox[{"Flatten", "@", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"c", "[", 
+             RowBox[{"i", ",", "j", ",", "k"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "4"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "4"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"k", ",", "4"}], "}"}]}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"(", "1", ")"}], " ", "Robni", " ", "pogoji", " ", "kopule",
+           " ", "in", " ", "robne", " ", "funkcije"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"boundaryConstraints", "=", 
+         RowBox[{"Flatten", "@", 
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{"C", "=", 
+             RowBox[{"0", " ", "na", " ", "koordinatnih", " ", "ravninah"}]}],
+             "*)"}], "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"1", ",", "j", ",", "k"}], "]"}], "==", "0"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "4"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"k", ",", "4"}], "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"i", ",", "1", ",", "k"}], "]"}], "==", "0"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "4"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"k", ",", "4"}], "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"i", ",", "j", ",", "1"}], "]"}], "==", "0"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "4"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "4"}], "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Robne", " ", 
+                RowBox[{"funkcije", ":", 
+                 RowBox[{"C", 
+                  RowBox[{"(", 
+                   RowBox[{"x", ",", "1", ",", "1"}], ")"}]}]}]}], "=", "x"}],
+               ",", 
+              RowBox[{
+               RowBox[{"C", 
+                RowBox[{"(", 
+                 RowBox[{"1", ",", "y", ",", "1"}], ")"}]}], "=", "y"}], ",", 
+              
+              RowBox[{
+               RowBox[{"C", 
+                RowBox[{"(", 
+                 RowBox[{"1", ",", "1", ",", "z"}], ")"}]}], "=", "z"}]}], 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"i", ",", "4", ",", "4"}], "]"}], "==", 
+               RowBox[{"xs", "[", 
+                RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "4"}], "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"4", ",", "j", ",", "4"}], "]"}], "==", 
+               RowBox[{"ys", "[", 
+                RowBox[{"[", "j", "]"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "4"}], "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"4", ",", "4", ",", "k"}], "]"}], "==", 
+               RowBox[{"zs", "[", 
+                RowBox[{"[", "k", "]"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"k", ",", "4"}], "}"}]}], "]"}]}], "}"}]}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"(", "2", ")"}], " ", "Monotonost", " ", "po", " ", "vsaki",
+           " ", "koordinati"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"monotoneConstraints", "=", 
+         RowBox[{"Flatten", "@", 
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"i", ",", "j", ",", "k"}], "]"}], "<=", 
+               RowBox[{"c", "[", 
+                RowBox[{
+                 RowBox[{"i", "+", "1"}], ",", "j", ",", "k"}], "]"}]}], ",", 
+              
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", "3"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", "4"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"k", ",", "1", ",", "4"}], "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"i", ",", "j", ",", "k"}], "]"}], "<=", 
+               RowBox[{"c", "[", 
+                RowBox[{"i", ",", 
+                 RowBox[{"j", "+", "1"}], ",", "k"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", "3"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"k", ",", "1", ",", "4"}], "}"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"i", ",", "j", ",", "k"}], "]"}], "<=", 
+               RowBox[{"c", "[", 
+                RowBox[{"i", ",", "j", ",", 
+                 RowBox[{"k", "+", "1"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", "4"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"k", ",", "1", ",", "3"}], "}"}]}], "]"}]}], "}"}]}]}],
+         ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", "3", ")"}], " ", "3"}], "-", 
+          RowBox[{"nara\[SHacek]\[CHacek]anje", ":", 
+           RowBox[{"C", "-", 
+            RowBox[{
+            "prostornine", " ", "vseh", " ", "27", " ", "majhnih", " ", 
+             "kock"}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"volumeConstraints", "=", 
+         RowBox[{"Flatten", "@", 
+          RowBox[{"Table", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{
+                RowBox[{"i", "+", "1"}], ",", 
+                RowBox[{"j", "+", "1"}], ",", 
+                RowBox[{"k", "+", "1"}]}], "]"}], "\[IndentingNewLine]", "-", 
+              
+              RowBox[{"c", "[", 
+               RowBox[{
+                RowBox[{"i", "+", "1"}], ",", 
+                RowBox[{"j", "+", "1"}], ",", "k"}], "]"}], 
+              "\[IndentingNewLine]", "-", 
+              RowBox[{"c", "[", 
+               RowBox[{
+                RowBox[{"i", "+", "1"}], ",", "j", ",", 
+                RowBox[{"k", "+", "1"}]}], "]"}], "\[IndentingNewLine]", "-", 
+              
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", 
+                RowBox[{"j", "+", "1"}], ",", 
+                RowBox[{"k", "+", "1"}]}], "]"}], "\[IndentingNewLine]", "+", 
+              
+              RowBox[{"c", "[", 
+               RowBox[{
+                RowBox[{"i", "+", "1"}], ",", "j", ",", "k"}], "]"}], 
+              "\[IndentingNewLine]", "+", 
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", 
+                RowBox[{"j", "+", "1"}], ",", "k"}], "]"}], 
+              "\[IndentingNewLine]", "+", 
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", "j", ",", 
+                RowBox[{"k", "+", "1"}]}], "]"}], "\[IndentingNewLine]", "-", 
+              
+              RowBox[{"c", "[", 
+               RowBox[{"i", ",", "j", ",", "k"}], "]"}]}], ">=", "0"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", "3"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "1", ",", "3"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"k", ",", "1", ",", "3"}], "}"}]}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"(", "4", ")"}], " ", "Naravne", " ", "omejitve", " ", 
+          "kopule"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"boundsConstraints", "=", 
+         RowBox[{"Thread", "[", 
+          RowBox[{"0", "<=", "vars", "<=", "1"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "Dolo\[CHacek]imo", " ", "indekse", " ", "to\[CHacek]k", " ", "u", " ",
+           "in", " ", "v", " ", "v", " ", "mre\[ZHacek]i"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"iu", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"u1", "<=", "v1"}], ",", "2", ",", "3"}], "]"}]}], ";", 
+        RowBox[{"iv", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"u1", "<=", "v1"}], ",", "3", ",", "2"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"ju", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"u2", "<=", "v2"}], ",", "2", ",", "3"}], "]"}]}], ";", 
+        RowBox[{"jv", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"u2", "<=", "v2"}], ",", "3", ",", "2"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"ku", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"u3", "<=", "v3"}], ",", "2", ",", "3"}], "]"}]}], ";", 
+        RowBox[{"kv", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"u3", "<=", "v3"}], ",", "3", ",", "2"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "Osnovne", " ", "omejitve", " ", "brez", " ", "predpisanih", " ", 
+          "vrednosti"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"constraints", "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{
+          "boundaryConstraints", ",", "monotoneConstraints", ",", 
+           "volumeConstraints", ",", "boundsConstraints"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{
+          "Najprej", " ", "poi\[SHacek]\[CHacek]emo", " ", "dopusten", " ", 
+           "interval", " ", "za", " ", "q1"}], "=", 
+          RowBox[{"C", 
+           RowBox[{"(", "u", ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "solMinU", ",", "solMaxU", ",", "q1min", ",", "q1max", ",", 
+            "solMinV", ",", "solMaxV", ",", "q2min", ",", "q2max"}], "}"}], ",", 
+          RowBox[{
+           RowBox[{"solMinU", "=", 
+            RowBox[{"Quiet", "@", 
+             RowBox[{"Check", "[", 
+              RowBox[{
+               RowBox[{"LinearOptimization", "[", 
+                RowBox[{
+                 RowBox[{"c", "[", 
+                  RowBox[{"iu", ",", "ju", ",", "ku"}], "]"}], ",", 
+                 "constraints", ",", "vars", ",", "\"\<PrimalMinimizer\>\"", ",", 
+                 RowBox[{"Method", "->", "\"\<Simplex\>\""}]}], "]"}], ",", 
+               "$Failed"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"solMaxU", "=", 
+            RowBox[{"Quiet", "@", 
+             RowBox[{"Check", "[", 
+              RowBox[{
+               RowBox[{"LinearOptimization", "[", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"c", "[", 
+                   RowBox[{"iu", ",", "ju", ",", "ku"}], "]"}]}], ",", 
+                 "constraints", ",", "vars", ",", "\"\<PrimalMinimizer\>\"", ",", 
+                 RowBox[{"Method", "->", "\"\<Simplex\>\""}]}], "]"}], ",", 
+               "$Failed"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"solMinU", "===", "$Failed"}], "||", 
+              RowBox[{"solMaxU", "===", "$Failed"}]}], ",", 
+             RowBox[{"Return", "[", 
+              RowBox[{"<|", 
+               
+               RowBox[{"\"\<Status\>\"", 
+                "->", "\"\<Napaka pri LP za prvo to\[CHacek]ko\>\""}], "|>"}],
+               "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"q1min", "=", 
+            RowBox[{"N", "[", 
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"iu", ",", "ju", ",", "ku"}], "]"}], "/.", " ", 
+              RowBox[{"Thread", "[", 
+               RowBox[{"vars", "->", "solMinU"}], "]"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"q1max", "=", 
+            RowBox[{"N", "[", 
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"iu", ",", "ju", ",", "ku"}], "]"}], "/.", " ", 
+              RowBox[{"Thread", "[", 
+               RowBox[{"vars", "->", "solMaxU"}], "]"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"q1min", ",", "q1max"}], "}"}], "=", 
+            RowBox[{"Sort", "[", 
+             RowBox[{"{", 
+              RowBox[{"q1min", ",", "q1max"}], "}"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+            "Analogno", " ", "\[SHacek]e", " ", "za", " ", "drugo", " ", 
+             "to\[CHacek]ko"}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"solMinV", "=", 
+            RowBox[{"Quiet", "@", 
+             RowBox[{"Check", "[", 
+              RowBox[{
+               RowBox[{"LinearOptimization", "[", 
+                RowBox[{
+                 RowBox[{"c", "[", 
+                  RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}], ",", 
+                 "constraints", ",", "vars", ",", "\"\<PrimalMinimizer\>\"", ",", 
+                 RowBox[{"Method", "->", "\"\<Simplex\>\""}]}], "]"}], ",", 
+               "$Failed"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"solMaxV", "=", 
+            RowBox[{"Quiet", "@", 
+             RowBox[{"Check", "[", 
+              RowBox[{
+               RowBox[{"LinearOptimization", "[", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"c", "[", 
+                   RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}]}], ",", 
+                 "constraints", ",", "vars", ",", "\"\<PrimalMinimizer\>\"", ",", 
+                 RowBox[{"Method", "->", "\"\<Simplex\>\""}]}], "]"}], ",", 
+               "$Failed"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"solMinV", "===", "$Failed"}], "||", 
+              RowBox[{"solMaxV", "===", "$Failed"}]}], ",", 
+             RowBox[{"Return", "[", 
+              RowBox[{"<|", 
+               
+               RowBox[{"\"\<Status\>\"", 
+                "->", "\"\<Napaka pri LP za drugo to\[CHacek]ko\>\""}], 
+               "|>"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"q2min", "=", 
+            RowBox[{"N", "[", 
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}], "/.", " ", 
+              RowBox[{"Thread", "[", 
+               RowBox[{"vars", "->", "solMinV"}], "]"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"q2max", "=", 
+            RowBox[{"N", "[", 
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}], "/.", " ", 
+              RowBox[{"Thread", "[", 
+               RowBox[{"vars", "->", "solMaxV"}], "]"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+            "Najprej", " ", "izberemo", " ", "q1", " ", "znotraj", " ", 
+             "dopustnega", " ", "intervala"}], "*)"}], "\[IndentingNewLine]", 
+           
+           RowBox[{"q1", "=", 
+            RowBox[{"RandomReal", "[", 
+             RowBox[{"{", 
+              RowBox[{"q1min", ",", "q1max"}], "}"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\n", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{
+             "Zdaj", " ", "IZRA\[CapitalCHacek]UNAMO", " ", "dopusten", " ", 
+              "interval", " ", "za", " ", "q2"}], ",", " ", 
+             RowBox[{"POGOJNO", " ", "na", " ", "izbrani", " ", "q1"}]}], 
+            "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"solMinV", "=", 
+            RowBox[{"Quiet", "@", 
+             RowBox[{"Check", "[", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"LinearOptimization", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"c", "[", 
+                  RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Join", "[", 
+                  RowBox[{"constraints", ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"c", "[", 
+                    RowBox[{"iu", ",", "ju", ",", "ku"}], "]"}], "==", "q1"}],
+                     "}"}]}], "]"}], ",", "\[IndentingNewLine]", "vars", 
+                 ",", "\"\<PrimalMinimizer\>\"", ",", 
+                 RowBox[{"Method", "->", "\"\<Simplex\>\""}]}], 
+                "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+               "$Failed"}], "]"}]}]}], ";", "\n", "\[IndentingNewLine]", 
+           RowBox[{"solMaxV", "=", 
+            RowBox[{"Quiet", "@", 
+             RowBox[{"Check", "[", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"LinearOptimization", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"c", "[", 
+                   RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}]}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Join", "[", 
+                  RowBox[{"constraints", ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"c", "[", 
+                    RowBox[{"iu", ",", "ju", ",", "ku"}], "]"}], "==", "q1"}],
+                     "}"}]}], "]"}], ",", "\[IndentingNewLine]", "vars", 
+                 ",", "\"\<PrimalMinimizer\>\"", ",", 
+                 RowBox[{"Method", "->", "\"\<Simplex\>\""}]}], 
+                "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+               "$Failed"}], "]"}]}]}], ";", "\n", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"solMinV", "===", "$Failed"}], "||", 
+              RowBox[{"solMaxV", "===", "$Failed"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Return", "[", 
+              RowBox[{"<|", 
+               
+               RowBox[{"\"\<Status\>\"", 
+                "->", "\"\<Napaka pri LP za q2 | q1\>\""}], "|>"}], "]"}]}], 
+            "]"}], ";", "\n", "\[IndentingNewLine]", 
+           RowBox[{"q2min", "=", 
+            RowBox[{"N", "[", 
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}], "/.", " ", 
+              RowBox[{"Thread", "[", 
+               RowBox[{"vars", "->", "solMinV"}], "]"}]}], "]"}]}], ";", "\n", 
+           RowBox[{"q2max", "=", 
+            RowBox[{"N", "[", 
+             RowBox[{
+              RowBox[{"c", "[", 
+               RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}], "/.", " ", 
+              RowBox[{"Thread", "[", 
+               RowBox[{"vars", "->", "solMaxV"}], "]"}]}], "]"}]}], ";", "\n", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"q2min", ",", "q2max"}], "}"}], "=", 
+            RowBox[{"Sort", "[", 
+             RowBox[{"{", 
+              RowBox[{"q2min", ",", "q2max"}], "}"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\n", 
+           RowBox[{"(*", 
+            RowBox[{
+            "Sedaj", " ", "izberemo", " ", "q2", " ", "znotraj", " ", 
+             "pogojnega", " ", "intervala"}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"q2", "=", 
+            RowBox[{"RandomReal", "[", 
+             RowBox[{"{", 
+              RowBox[{"q2min", ",", "q2max"}], "}"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\n", 
+           RowBox[{"(*", 
+            RowBox[{
+            "Predpisani", " ", "vrednosti", " ", "v", " ", "obeh", " ", 
+             "to\[CHacek]kah"}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"prescribedConstraints", "=", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"iu", ",", "ju", ",", "ku"}], "]"}], "==", "q1"}], ",",
+               "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}], "==", "q2"}]}], 
+             "\[IndentingNewLine]", "}"}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+            "Predpisani", " ", "vrednosti", " ", "v", " ", "obeh", " ", 
+             "to\[CHacek]kah"}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"prescribedConstraints", "=", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"iu", ",", "ju", ",", "ku"}], "]"}], "==", "q1"}], ",",
+               "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"c", "[", 
+                RowBox[{"iv", ",", "jv", ",", "kv"}], "]"}], "==", "q2"}]}], 
+             "}"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{"Kon\[CHacek]ni", " ", "LP"}], "\[Dash]", 
+             RowBox[{"preverimo", " ", "dopustnost"}]}], "*)"}], 
+           RowBox[{"sol", "=", 
+            RowBox[{"Quiet", "@", 
+             RowBox[{"Check", "[", 
+              RowBox[{
+               RowBox[{"LinearOptimization", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"Join", "[", 
+                  RowBox[{"constraints", ",", "prescribedConstraints"}], 
+                  "]"}], ",", "vars", ",", "\"\<PrimalMinimizer\>\"", ",", 
+                 RowBox[{"Method", "->", "\"\<Simplex\>\""}]}], "]"}], ",", 
+               "$Failed"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"<|", 
+            RowBox[{
+             RowBox[{"\"\<u\>\"", "->", 
+              RowBox[{"{", 
+               RowBox[{"u1", ",", "u2", ",", "u3"}], "}"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"\"\<v\>\"", "->", 
+              RowBox[{"{", 
+               RowBox[{"v1", ",", "v2", ",", "v3"}], "}"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"\"\<Indeksi u\>\"", "->", 
+              RowBox[{"{", 
+               RowBox[{"iu", ",", "ju", ",", "ku"}], "}"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"\"\<Indeksi v\>\"", "->", 
+              RowBox[{"{", 
+               RowBox[{"iv", ",", "jv", ",", "kv"}], "}"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"\"\<Interval q1\>\"", "->", 
+              RowBox[{"{", 
+               RowBox[{"q1min", ",", "q1max"}], "}"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"\"\<Interval q2\>\"", "->", 
+              RowBox[{"{", 
+               RowBox[{"q2min", ",", "q2max"}], "}"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"\"\<q1\>\"", "->", "q1"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"\"\<q2\>\"", "->", "q2"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"\"\<Dopustno?\>\"", "->", 
+              RowBox[{"(", 
+               RowBox[{"sol", "=!=", "$Failed"}], ")"}]}]}], "|>"}]}]}], 
+         "]"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Ve\[CHacek]kratno", " ", "testiranje"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"TestTwoPointsMany", "[", 
+      RowBox[{"n_Integer", ":", "50"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "rezultati", "}"}], ",", 
+       RowBox[{
+        RowBox[{"rezultati", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"TestTwoPointsOneInstance", "[", "]"}], ",", "n"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<Skupaj\>\"", "->", "n"}], ",", 
+          RowBox[{"\"\<Uspehi\>\"", "->", 
+           RowBox[{"Count", "[", 
+            RowBox[{"rezultati", ",", 
+             RowBox[{"a_", "/;", 
+              RowBox[{"TrueQ", "[", 
+               RowBox[{"a", "[", "\"\<Dopustno?\>\"", "]"}], "]"}]}]}], 
+            "]"}]}], ",", 
+          RowBox[{"\"\<Neuspehi\>\"", "->", 
+           RowBox[{"Count", "[", 
+            RowBox[{"rezultati", ",", 
+             RowBox[{"a_", "/;", 
+              RowBox[{
+               RowBox[{"KeyExistsQ", "[", 
+                RowBox[{"a", ",", "\"\<Dopustno?\>\""}], "]"}], "&&", 
+               RowBox[{"!", 
+                RowBox[{"TrueQ", "[", 
+                 RowBox[{"a", "[", "\"\<Dopustno?\>\"", "]"}], "]"}]}]}]}]}], 
+            "]"}]}]}], "|>"}]}]}], "]"}]}], ";"}], "\n"}]}]], "Input",
+ CellChangeTimes->{{3.9758355710757923`*^9, 3.975835664834989*^9}, {
+  3.975835714523881*^9, 3.9758357678357267`*^9}, {3.975835865804618*^9, 
+  3.97583593325974*^9}, {3.975836217898706*^9, 3.975836282439789*^9}, {
+  3.9761037725657883`*^9, 3.9761039471018763`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"b8549347-4e83-4e48-ad09-6d065bb14428"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TestTwoPointsMany", "[", "100", "]"}]], "Input",
+ CellChangeTimes->{{3.975908461361883*^9, 3.97590846818906*^9}, {
+  3.9759085026270742`*^9, 3.975908503175177*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"a885f795-6b49-488e-b700-d8f69361ce8b"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"Skupaj\"\>", "\[Rule]", "100"}], ",", 
+   RowBox[{"\<\"Uspehi\"\>", "\[Rule]", "100"}], ",", 
+   RowBox[{"\<\"Neuspehi\"\>", "\[Rule]", "0"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.9759084721318073`*^9, 3.9759085097546387`*^9}, 
+   3.976103967910328*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"f12c4267-f5f7-44d7-bf9f-1a100070652d"]
+}, Open  ]]
+},
+WindowSize->{1403, 848},
+WindowMargins->{{Automatic, 52}, {1, Automatic}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"9e51bb5f-4a22-486c-b57c-dba5398d7b35"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 14825, 352, 1745, "Input",ExpressionUUID->"a4217e7c-04f5-4a88-a73f-11ffc10cae8d"],
+Cell[CellGroupData[{
+Cell[15404, 376, 1439, 36, 172, "Input",ExpressionUUID->"b230a367-f9c2-4717-adfa-7cf31c505893"],
+Cell[16846, 414, 526, 10, 33, "Output",ExpressionUUID->"b2975429-eab9-4209-97e7-1d576717d1f6"]
+}, Open  ]],
+Cell[17387, 427, 81, 0, 29, "Input",ExpressionUUID->"43308c80-13df-4186-9269-f699dd67afba"],
+Cell[17471, 429, 30140, 699, 3100, "Input",ExpressionUUID->"b8549347-4e83-4e48-ad09-6d065bb14428"],
+Cell[CellGroupData[{
+Cell[47636, 1132, 266, 4, 29, "Input",ExpressionUUID->"a885f795-6b49-488e-b700-d8f69361ce8b"],
+Cell[47905, 1138, 430, 9, 52, "Output",ExpressionUUID->"f12c4267-f5f7-44d7-bf9f-1a100070652d"]
+}, Open  ]]
+}
+]
+*)
+
