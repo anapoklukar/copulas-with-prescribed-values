@@ -1,0 +1,8 @@
+konfiguracija 2+1: dimenzija 3, točki na mreži [(2, 2, 1), (1, 1, 2)]
+H: 27 x 64,  določenih vozlišč 46, nedoločenih 18
+H_n: 27 x 18,  G: 63 x 18
+oglišča politopa P: 32224  (od tega trivialnih a_s <= b_s: 18),  čas 34 s
+oglišča do zamenjave koordinat: 16460
+(a) oglišča politopa podatkov: 27;  32224 neenakosti v vsakem, najmanjša vrednost h^T y = 0
+(b) 2000 naključnih združljivih podatkov: najmanjša vrednost h^T y = -8.9e-16
+(c) kontrola z linearnim programom: ujemanje 300/300 (od tega brez rešitve: 67)
