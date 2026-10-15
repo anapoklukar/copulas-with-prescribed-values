@@ -1,0 +1,28 @@
+konfiguracija 2+1: dimenzija 3, točki na mreži [(2, 2, 1), (1, 1, 2)]
+H: 27 x 64,  določenih vozlišč 46, nedoločenih 18
+H_n: 27 x 18,  G: 63 x 18
+zmanjšana različica: neznanke le uteži celic, H_n^T: 18 x 27
+  cdd je končal: 17 žarkov, sledi točno preverjanje
+oglišča: 17,  čas 0.0 s
+oglišča do zamenjave koordinat: 13
+neenakosti (vsaka je pogoj združljivosti ali urejenost koordinat):
+   l1 <= 1   [9 celic]
+   s1 <= l1   [9 celic]
+   q1 >= l1 + l2 + s3 - 2   (3.2)   [11 celic]
+   q1 <= s3   (3.2)   [5 celic]
+   l2 <= 1   [9 celic]
+   q2 >= s1 + s2 + l3 - 2   (3.2)   [16 celic]
+   q2 - q1 <= d_+(x2, x1)   (3.3)   [11 celic]
+   s2 <= l2   [9 celic]
+   q2 <= s2   (3.2)   [7 celic]
+   l3 <= 1   [9 celic]
+   q2 <= s1   (3.2)   [7 celic]
+   s3 <= l3   [9 celic]
+   q1 - q2 <= d_+(x1, x2)   (3.3)   [14 celic]
+   q1 <= l2   (3.2)   [14 celic]
+   q1 <= l1   (3.2)   [14 celic]
+   q1 >= 0   (3.2)   [4 celic]
+   q2 >= 0   (3.2)   [2 celic]
+neenakosti, ki niso en sam pogoj združljivosti: 0
+(a) oglišča politopa podatkov: 27;  najmanjša vrednost = 0
+(b) kontrola: oglišča = zmanjšani sistem = polni sistem v 300/300 primerih (od tega brez rešitve: 67)

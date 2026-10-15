@@ -1,0 +1,80 @@
+konfiguracija 4+0: 70 neznank, 221 neenačb
+Computing extreme rays as support hyperplanes of the dual cone:
+*************************************************************
+starting full cone computation
+Generators sorted lexicographically
+Starting primal algorithm (only support hyperplanes) ...
+Start simplex 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 147 150 159 168 181 195 221 
+gen=145, 155 hyp, 6 new
+gen=146, 160 hyp, 8 new
+gen=148, 168 hyp, 11 new
+gen=149, 177 hyp, 15 new
+gen=151, 192 hyp, 19 new
+gen=152, 207 hyp, 27 new
+gen=153, 244 hyp, 44 new
+gen=154, 304 hyp, 79 new
+gen=155, 407 hyp, 154 new
+gen=156, 506 hyp, 163 new
+gen=157, 791 hyp, 383 new
+gen=158, 1326 hyp, 726 new
+gen=160, 2062 hyp, 883 new
+gen=161, 2765 hyp, 1333 new
+gen=162, 4671 hyp, 2322 new
+gen=163, 8972 hyp, 5604 new
+gen=164, 16874 hyp, 11148 new
+gen=165, 24938 hyp, 14352 new
+Per row 6101 nanoseconds
+Per comparison 31 ticks (nanoseconds)
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 7521
+..................................................
+gen=166, 51483 hyp, 35364 new
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 12007
+..................................................
+gen=167, 110790 hyp, 73936 new
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 12377
+..................................................
+gen=169, 198162 hyp, 102815 new
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 68304
+..................................................
+gen=170, 301473 hyp, 191549 new
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 148
+..................................................
+gen=171, 568361 hyp, 316286 new
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 198
+..................................................
+gen=172, 1062719 hyp, 625505 new
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 302
+..................................................
+gen=173, 1907984 hyp, 1287780 new
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 169
+..................................................
+gen=174, 3164666 hyp, 2106137 new
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 249
+..................................................
+gen=175, 6414912 hyp, 4391604 new
+Building pyramids for support hyperplanes
+..................................................
+large pyramids 553
+..................................................
+gen=176, 12872564 hyp, 8725167 new
+Building pyramids for support hyperplanes
+......................................terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc

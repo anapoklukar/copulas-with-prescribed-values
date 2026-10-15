@@ -1,40 +1,48 @@
-# Dve točki: sistem G v_n ≤ h in oglišča dualnega politopa
+# Dve točki: sistem neenačb in oglišča dualnega politopa
 
-Ena sama skripta, `dve_tocki.py`. Za izbrano konfiguracijo sestavi sistem, izračuna oglišča politopa P in preveri neenakosti.
+Glavna skripta je `dve_tocki.py`. Za izbrano konfiguracijo sestavi sistem, izračuna oglišča dualnega politopa in preveri dobljene neenakosti. Ima dve različici.
+
+- **Zmanjšana različica (privzeto).** Meje ovojnic v nedoločenih vozliščih so odveč: ko so vrednosti na robovih in v obeh točkah določene, je vsaka rešitev z nenegativnimi masami celic že kopula in zato leži med ovojnicama. Ostanejo le uteži celic, iščemo oglišča stožca {λ ≥ 0, H_n^T λ = 0}. Vsako oglišče da linearno neenakost v podatkih.
+- **Prvotna različica (`--brez-redukcije`).** Sistem G v_n ≤ h z mejami, kot v članku Omladiča, Vuka in Zalarja. Daje enak odgovor, vendar z bistveno več oglišči.
 
 ## Namestitev (enkrat)
 
     python3 -m venv venv
-    ./venv/bin/pip install pycddlib-standalone numpy scipy
+    ./venv/bin/pip install pycddlib-standalone numpy scipy matplotlib pynormaliz
 
 ## Uporaba
 
-    ./venv/bin/python dve_tocki.py 3+0
-    ./venv/bin/python dve_tocki.py 2+1
+    ./venv/bin/python dve_tocki.py 3+0                    # zmanjšana različica
+    ./venv/bin/python dve_tocki.py 3+0 --brez-redukcije   # prvotna različica
 
-V dveh dimenzijah: `2+0` in `1+1` (nekaj sekund). V treh dimenzijah izračun oglišč traja približno pol minute, celoten zagon s preverjanji pa približno dve minuti.
+Konfiguracija `p+r` pomeni: dimenzija je p + r, prva točka je večja od druge v prvih p koordinatah in manjša v zadnjih r. V dveh dimenzijah sta konfiguraciji `2+0` in `1+1`, v treh `3+0` in `2+1`, v štirih `4+0`, `3+1` in `2+2`.
 
-Konfiguracija `p+r` pomeni: dimenzija je p + r, prva točka je večja od druge v prvih p koordinatah in manjša v zadnjih r.
+## Rezultati
 
-## Kaj izpiše
+| dimenzija | konfiguracija | prvotna različica | zmanjšana različica |
+|---|---|---|---|
+| 2 | 2+0, 1+1 | 23 | 10 |
+| 3 | 3+0 | 26 966 | 16 |
+| 3 | 2+1 | 32 224 | 17 |
+| 4 | 4+0, 3+1, 2+2 | ni končano | 20, 21, 22 |
+
+V zmanjšani različici je vsaka dobljena neenakost en sam pogoj združljivosti podatkov (pogoja (3.2) in (3.3) iz članka) ali urejenost koordinat. Izpisi so v datotekah `izhod_zmanjsano_*.txt`, izpisa prvotne različice v treh dimenzijah pa v `izhod_brez_redukcije_*.txt`.
+
+## Kaj izpiše zmanjšana različica
 
 | vrstica | pomen |
 |---|---|
-| `H: 27 x 64, določenih 46, nedoločenih 18` | velikost incidenčne matrike, razbitje vozlišč |
-| `H_n: 27 x 18, G: 63 x 18` | velikost sistema G v_n ≤ h |
-| `oglišča politopa P` | število oglišč, od tega trivialna (a_s ≤ b_s), čas izračuna |
+| `oglišča` | število oglišč stožca {λ ≥ 0, H_n^T λ = 0} |
 | `oglišča do zamenjave koordinat` | število oglišč do simetrij konfiguracije |
-| `(a)` | vse neenakosti h^T y ≥ 0 v vseh ogliščih politopa podatkov, točno |
-| `(b)` | vse neenakosti na 2000 naključnih združljivih podatkih |
-| `(c)` | kontrola seznama oglišč: odgovor po ogliščih se ujema z linearnim programom |
+| `neenakosti` | vsako oglišče, zapisano kot pogoj na podatke |
+| `(a)` | vse neenakosti v vseh ogliščih politopa podatkov, točno |
+| `(b)` | kontrola: oglišča, zmanjšani sistem in polni sistem dajo enak odgovor na naključnih podatkih |
 
-## Kje je kaj v kodi
+## Druge datoteke
 
-| korak | funkcija |
+| datoteka | kaj je |
 |---|---|
-| incidenčna matrika H | `incidencna_matrika` |
-| določena in nedoločena vozlišča | `je_doloceno`, `razbitje` |
-| matrika G | `matrika_G` |
-| oglišča politopa P (knjižnica cdd) | `oglisca_P` |
-| ovojnici a, b in vektor h | `ovojnici`, `vektor_h` |
-| oglišča politopa podatkov | `oglisca_podatkov` |
+| `neposredno.py` | neposredno preverjanje z linearnim programom, brez oglišč (izpisi `neposredno_*.txt`) |
+| `oglisca_normaliz.py` | oglišča prvotne različice s programom Normaliz |
+| `normaliz_4+0.txt` | dnevnik izračuna v 4D (prvotna različica), ustavljen pri 30 GB pomnilnika |
+| `rast_4d.py` | slika rasti števila vmesnih kombinacij v 4D (`slika_rast_4d.pdf`) |

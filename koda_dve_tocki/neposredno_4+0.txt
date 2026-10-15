@@ -1,0 +1,4 @@
+konfiguracija 4+0: 70 neznank, 221 neenačb
+(a) oglišča politopa podatkov: 81;  sistem ima rešitev v 81, točno preverjenih 81  (369 s)
+(b) naključni združljivi podatki: sistem ima rešitev v 2000/2000
+(c) kontrola, podatki niso nujno združljivi: brez rešitve 167/300
