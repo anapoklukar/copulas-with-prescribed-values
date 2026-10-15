@@ -1,6 +1,6 @@
 """
 Rast števila vmesnih kombinacij pri izračunu oglišč v štirih dimenzijah (Normaliz, konfiguracija 4+0).
-Bere dnevnik normaliz_4+0.txt in nariše sliko ../slika_rast_4d.pdf.
+Bere dnevnik normaliz_4+0.txt in nariše sliko ../slike/slika_rast_4d.pdf.
 
 Uporaba:   python rast_4d.py
 """
@@ -34,4 +34,4 @@ for s in ("top", "right"): ax.spines[s].set_visible(False)
 for s in ("left", "bottom"): ax.spines[s].set_color(MREZA)
 ax.tick_params(colors=SIVO, length=0)
 fig.tight_layout()
-fig.savefig("../slika_rast_4d.pdf"); fig.savefig("../slika_rast_4d.png", dpi=150)
+fig.savefig("../slike/slika_rast_4d.pdf"); fig.savefig("../slike/slika_rast_4d.png", dpi=150)

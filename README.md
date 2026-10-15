@@ -7,9 +7,10 @@ The thesis investigates the existence problem for multivariate copulas with pres
 
 ## Repository structure
 
-- `dve_tocki_3d.pdf`: report on two prescribed points in dimension 3 (system of inequalities, dual problem, results). The source is `dve_tocki_3d.tex`.
+- `porocilo/`: report on two prescribed points in dimension 3 (`dve_tocki_3d.pdf`, source `dve_tocki_3d.tex`).
 - `koda_dve_tocki/`: Python code for two prescribed points, with and without the reduction of the dual problem. See `koda_dve_tocki/README.md`.
 - `koda_tri_tocke/`: Python code for three prescribed points in dimension 3 (configurations, tests, direct check). See `koda_tri_tocke/README.md`.
+- `slike/`: figures produced by the code.
 - `stari_poskusi/`: earlier Mathematica experiments with random instances. They are kept for reference and are no longer used.
 
 ## Running the code

@@ -120,4 +120,4 @@ if __name__ == "__main__":
     fig.text(0.985, 0.03, "Na vsaki osi so točke razvrščene od najmanjše (levo) do največje (desno).   "
              "Pod oznako konfiguracije je tip vsakega para točk.",
              ha="right", va="center", fontsize=8.5, color=SIVO)
-    fig.savefig("../slika_konfiguracije_3tocke.pdf"); fig.savefig("../slika_konfiguracije_3tocke.png", dpi=150)
+    fig.savefig("../slike/slika_konfiguracije_3tocke.pdf"); fig.savefig("../slike/slika_konfiguracije_3tocke.png", dpi=150)

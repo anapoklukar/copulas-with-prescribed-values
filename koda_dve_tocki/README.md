@@ -45,4 +45,4 @@ V zmanjšani različici je vsaka dobljena neenakost en sam pogoj združljivosti 
 | `neposredno.py` | neposredno preverjanje z linearnim programom, brez oglišč (izpisi `neposredno_*.txt`) |
 | `oglisca_normaliz.py` | oglišča prvotne različice s programom Normaliz |
 | `normaliz_4+0.txt` | dnevnik izračuna v 4D (prvotna različica), ustavljen pri 30 GB pomnilnika |
-| `rast_4d.py` | slika rasti števila vmesnih kombinacij v 4D (`slika_rast_4d.pdf`) |
+| `rast_4d.py` | slika rasti števila vmesnih kombinacij v 4D (`slike/slika_rast_4d.pdf`) |
