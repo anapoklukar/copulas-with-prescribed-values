@@ -141,7 +141,9 @@ def vektor_Hd_vd(x, d, tocki, H, Z, dol):
         if z == tocki[1]: return x[2 * d + 1]
         return min(koordinate(z, x, d))
     vd = [znana_vrednost(Z[j]) for j in dol]
-    return [sum(int(H[i, j]) * vd[jj] for jj, j in enumerate(dol) if H[i, j]) for i in range(H.shape[0])]
+    im = lcm(*[v.denominator for v in vd])                      # točno: skupni imenovalec, nato cela števila
+    Hd_vd = H[:, dol].astype(np.int64) @ np.array([int(v * im) for v in vd], dtype=np.int64)
+    return [Fr(int(v), im) for v in Hd_vd]
 
 def vektor_h(x, d, tocki, H, Z, nedol, dol):
     """h = [H_d v_d; b_n; -a_n]."""
@@ -252,7 +254,7 @@ def zmanjsana_razlicica(ime, d, p, tocki, H, Z, nedol, dol, rng):
 
     # (b) kontrola: zmanjšani sistem, polni sistem in odgovor po ogliščih se ujemajo,
     #     na naključnih podatkih, ki niso nujno združljivi
-    G = matrika_G(H, nedol); ujemanj, brez, T = 0, 0, 300
+    G = matrika_G(H, nedol); ujemanj, brez, T = 0, 0, (300 if d <= 4 else 30)
     for _ in range(T):
         pari = [sorted(rng.choice(range(1, 100), 2, replace=False)) for _ in range(d)]
         x = [Fr(int(a), 100) for a, b in pari] + [Fr(int(b), 100) for a, b in pari]

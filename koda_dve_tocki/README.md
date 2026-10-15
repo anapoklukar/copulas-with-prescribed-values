@@ -19,14 +19,24 @@ Konfiguracija `p+r` pomeni: dimenzija je p + r, prva točka je večja od druge v
 
 ## Rezultati
 
-| dimenzija | konfiguracija | prvotna različica | zmanjšana različica |
-|---|---|---|---|
-| 2 | 2+0, 1+1 | 23 | 10 |
-| 3 | 3+0 | 26 966 | 16 |
-| 3 | 2+1 | 32 224 | 17 |
-| 4 | 4+0, 3+1, 2+2 | ni končano | 20, 21, 22 |
+| dimenzija | konfiguracija | prvotna različica | zmanjšana različica | do zamenjave koordinat |
+|---|---|---|---|---|
+| 2 | 2+0 | 23 | 10 | 7 |
+| 2 | 1+1 | 23 | 10 | 10 |
+| 3 | 3+0 | 26 966 | 16 | 8 |
+| 3 | 2+1 | 32 224 | 17 | 13 |
+| 4 | 4+0 | ni končano | 20 | 8 |
+| 4 | 3+1 | ni končano | 21 | 13 |
+| 4 | 2+2 | ni končano | 22 | 14 |
+| 5 | 5+0 | – | 24 | 8 |
+| 5 | 4+1 | – | 25 | 13 |
+| 5 | 3+2 | – | 26 | 14 |
+| 6 | 6+0 | – | 28 | 8 |
+| 6 | 5+1 | – | 29 | 13 |
+| 6 | 4+2 | – | 30 | 14 |
+| 6 | 3+3 | – | 30 | 14 |
 
-V zmanjšani različici je vsaka dobljena neenakost en sam pogoj združljivosti podatkov (pogoja (3.2) in (3.3) iz članka) ali urejenost koordinat. Izpisi so v datotekah `izhod_zmanjsano_*.txt`, izpisa prvotne različice v treh dimenzijah pa v `izhod_brez_redukcije_*.txt`.
+V zmanjšani različici je vsaka dobljena neenakost en sam pogoj združljivosti podatkov (pogoja (3.2) in (3.3) iz članka) ali urejenost koordinat, in sicer v vseh konfiguracijah do dimenzije 6. Izpisi so v datotekah `izhod_zmanjsano_*.txt`, izpisa prvotne različice v treh dimenzijah pa v `izhod_brez_redukcije_*.txt`. Zagon v šestih dimenzijah traja približno minuto in pol.
 
 ## Kaj izpiše zmanjšana različica
 

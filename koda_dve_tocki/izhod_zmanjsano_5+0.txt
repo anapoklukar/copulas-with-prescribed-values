@@ -1,0 +1,35 @@
+konfiguracija 5+0: dimenzija 5, točki na mreži [(2, 2, 2, 2, 2), (1, 1, 1, 1, 1)]
+H: 243 x 1024,  določenih vozlišč 794, nedoločenih 230
+H_n: 243 x 230,  G: 703 x 230
+zmanjšana različica: neznanke le uteži celic, H_n^T: 230 x 243
+  cdd je končal: 24 žarkov, sledi točno preverjanje
+oglišča: 24,  čas 1.4 s
+oglišča do zamenjave koordinat: 8
+neenakosti (vsaka je pogoj združljivosti ali urejenost koordinat):
+   l1 <= 1   [81 celic]
+   s1 <= l1   [81 celic]
+   l2 <= 1   [81 celic]
+   s2 <= l2   [81 celic]
+   l3 <= 1   [81 celic]
+   s3 <= l3   [81 celic]
+   q1 >= l1 + l2 + l3 + l4 + l5 - 4   (3.2)   [131 celic]
+   q1 <= l5   (3.2)   [130 celic]
+   l4 <= 1   [81 celic]
+   q1 - q2 <= d_+(x1, x2)   (3.3)   [206 celic]
+   q2 <= s5   (3.2)   [80 celic]
+   s4 <= l4   [81 celic]
+   q1 <= l4   (3.2)   [130 celic]
+   l5 <= 1   [81 celic]
+   q1 <= l3   (3.2)   [130 celic]
+   q1 <= l2   (3.2)   [130 celic]
+   q1 <= l1   (3.2)   [130 celic]
+   s5 <= l5   [81 celic]
+   q2 - q1 <= d_+(x2, x1)   (3.3)   [31 celic]
+   q2 <= s4   (3.2)   [80 celic]
+   q2 <= s3   (3.2)   [80 celic]
+   q2 <= s2   (3.2)   [80 celic]
+   q2 <= s1   (3.2)   [80 celic]
+   q2 >= 0   (3.2)   [1 celic]
+neenakosti, ki niso en sam pogoj združljivosti: 0
+(a) oglišča politopa podatkov: 243;  najmanjša vrednost = 0
+(b) kontrola: oglišča = zmanjšani sistem = polni sistem v 30/30 primerih (od tega brez rešitve: 18)
