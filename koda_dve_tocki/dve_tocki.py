@@ -4,7 +4,7 @@ Interpolacija dveh točk: sistem G v_n <= h in oglišča dualnega politopa P.
 Uporaba:   python dve_tocki.py 3+0                     zmanjšana različica (privzeto)
            python dve_tocki.py 3+0 --brez-redukcije    prvotna različica z mejami
 
-Zmanjšana različica (predlog mentorja, 15. 10. 2026): meje a_n <= v_n <= b_n so odveč.
+Zmanjšana različica: meje a_n <= v_n <= b_n so odveč.
 Ko so vrednosti v določenih vozliščih fiksne, je vsaka rešitev sistema H_n v_n >= -H_d v_d
 že diskretna kopula s predpisanimi vrednostmi in zato samodejno leži med ovojnicama.
 Ostanejo le uteži celic lambda: oglišča stožca {lambda >= 0, H_n^T lambda = 0}, pogoji pa

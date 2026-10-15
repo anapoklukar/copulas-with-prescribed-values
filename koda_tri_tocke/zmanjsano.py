@@ -1,5 +1,5 @@
 """
-Zmanjšana različica (predlog mentorja, 15. 10.): meje a_n <= v_n <= b_n izpustimo.
+Zmanjšana različica: meje a_n <= v_n <= b_n izpustimo.
 
 Ker so vrednosti v določenih vozliščih (robovi in predpisane točke) fiksne, je vsaka
 rešitev sistema  H_n v_n >= -H_d v_d  že diskretna kopula s predpisanimi vrednostmi,
