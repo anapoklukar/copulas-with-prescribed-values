@@ -1,0 +1,43 @@
+K1  osi ['ABC', 'ABC', 'ABC']:  oglišč 24, pogojev združljivosti 24 (vsi med oglišči: True), dodatnih 0, od teh res novih 0;  čas 0.3 s
+K2  osi ['ABC', 'ABC', 'ACB']:  oglišč 28, pogojev združljivosti 26 (vsi med oglišči: True), dodatnih 2, od teh res novih 2;  čas 0.4 s
+   - x_A + x_B - y_A + y_B + y_C - z_A + z_C + q_A - q_B - q_C >= 0   (celic 47, uteži [1, 2, 3])
+   - x_A + x_B + x_C - y_A + y_B - z_A + z_C + q_A - q_B - q_C >= 0   (celic 47, uteži [1, 2, 3])
+K3  osi ['ABC', 'ABC', 'BAC']:  oglišč 26, pogojev združljivosti 26 (vsi med oglišči: True), dodatnih 0, od teh res novih 0;  čas 0.3 s
+K4  osi ['ABC', 'ABC', 'CAB']:  oglišč 28, pogojev združljivosti 26 (vsi med oglišči: True), dodatnih 2, od teh res novih 2;  čas 0.3 s
+   - x_A + x_B - y_A + y_B + y_C + q_A - q_B - q_C >= 0   (celic 45, uteži [1, 2, 3])
+   - x_A + x_B + x_C - y_A + y_B + q_A - q_B - q_C >= 0   (celic 45, uteži [1, 2, 3])
+K5  osi ['ABC', 'ABC', 'BCA']:  oglišč 29, pogojev združljivosti 27 (vsi med oglišči: True), dodatnih 2, od teh res novih 2;  čas 0.3 s
+   + y_C - z_B + z_C - q_A + q_B - q_C >= 0   (celic 44, uteži [1, 2])
+   + x_C - z_B + z_C - q_A + q_B - q_C >= 0   (celic 44, uteži [1, 2])
+K6  osi ['ABC', 'ACB', 'BAC']:  oglišč 28, pogojev združljivosti 26 (vsi med oglišči: True), dodatnih 2, od teh res novih 2;  čas 0.3 s
+   - x_A + x_B - y_A + y_C + z_C + q_A - q_B - q_C >= 0   (celic 47, uteži [1, 2])
+   - x_A + x_B + x_C - y_A + y_C + q_A - q_B - q_C >= 0   (celic 44, uteži [1, 2, 3])
+K7  osi ['ABC', 'ABC', 'CBA']:  oglišč 28, pogojev združljivosti 26 (vsi med oglišči: True), dodatnih 2, od teh res novih 2;  čas 0.3 s
+   + y_C - q_A + q_B - q_C >= 0   (celic 41, uteži [1, 2])
+   + x_C - q_A + q_B - q_C >= 0   (celic 41, uteži [1, 2])
+K8  osi ['ABC', 'ACB', 'BCA']:  oglišč 32, pogojev združljivosti 28 (vsi med oglišči: True), dodatnih 4, od teh res novih 4;  čas 0.4 s
+   + y_C - z_B + z_C - q_A + q_B - q_C >= 0   (celic 37, uteži [1, 2])
+   + x_B - q_A - q_B + q_C >= 0   (celic 32, uteži [1, 2])
+   - x_A + x_B - y_A + y_C + z_C + q_A - q_B - q_C >= 0   (celic 41, uteži [1, 2])
+   - x_A - x_C - y_A - y_B - z_B - z_A + q_A + q_B + q_C + 4 >= 0   (celic 52, uteži [1, 2, 3, 4])
+K9  osi ['ABC', 'BAC', 'CAB']:  oglišč 29, pogojev združljivosti 27 (vsi med oglišči: True), dodatnih 2, od teh res novih 2;  čas 0.3 s
+   - x_A + x_B + y_C + q_A - q_B - q_C >= 0   (celic 45, uteži [1, 2])
+   - x_A + x_B + x_C + q_A - q_B - q_C >= 0   (celic 41, uteži [1, 2])
+K10  osi ['ABC', 'CAB', 'BCA']:  oglišč 31, pogojev združljivosti 27 (vsi med oglišči: True), dodatnih 4, od teh res novih 4;  čas 0.4 s
+   + y_A - z_B + z_C - q_A + q_B - q_C >= 0   (celic 37, uteži [1, 2])
+   + x_B - y_C + y_A - q_A - q_B + q_C >= 0   (celic 37, uteži [1, 2])
+   - x_A + x_B + z_C + q_A - q_B - q_C >= 0   (celic 37, uteži [1, 2])
+   - x_A - x_C - y_C - y_B - z_B - z_A + q_A + q_B + q_C + 4 >= 0   (celic 52, uteži [1, 2, 3, 4])
+
+Povzetek
+konf.  oglišč  pogojev združljivosti  dodatnih
+K1         24                     24         0
+K2         28                     26         2
+K3         26                     26         0
+K4         28                     26         2
+K5         29                     27         2
+K6         28                     26         2
+K7         28                     26         2
+K8         32                     28         4
+K9         29                     27         2
+K10        31                     27         4
