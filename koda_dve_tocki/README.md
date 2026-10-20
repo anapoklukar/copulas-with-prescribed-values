@@ -61,6 +61,7 @@ V dimenziji 7 je število oglišč v vseh štirih konfiguracijah enako 4d + 4 + 
 | `oglišča` | število oglišč stožca {λ ≥ 0, H_n^T λ = 0} |
 | `oglišča do zamenjave koordinat` | število oglišč do simetrij konfiguracije |
 | `neenakosti` | vsako oglišče, zapisano kot pogoj na podatke |
+| mreža pod neenakostjo | v dimenzijah 2 in 3: uteži celic λ tega oglišča (stolpci so intervali na osi 1, vrstice na osi 2 od zgoraj, v 3D tri plasti po osi 3; pika pomeni 0) |
 | `(a)` | vse neenakosti v vseh ogliščih politopa podatkov, točno |
 | `(b)` | kontrola: oglišča, zmanjšani sistem in polni sistem dajo enak odgovor na naključnih podatkih |
 

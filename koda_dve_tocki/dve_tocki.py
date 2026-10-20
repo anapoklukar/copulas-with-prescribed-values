@@ -225,6 +225,17 @@ def nakljucni_zdruzljivi_podatki(d, tocki):
     return s + l + [q1, q2]
 
 
+def slika_lambde(lam, d):
+    """Uteži celic kot mreža (le za d = 2, 3), '.' pomeni utež 0.
+    Stolpci so intervali na osi 1 ([0, s1], [s1, l1], [l1, 1]), vrstice intervali na osi 2 od zgoraj
+    ([l2, 1], [s2, l2], [0, s2]), v treh dimenzijah so tri plasti po intervalih na osi 3."""
+    znak = lambda t: str(t) if t else "."
+    plasti = []
+    for i3 in (range(3) if d == 3 else [None]):
+        celica = lambda i1, i2: i1 * 3 + i2 if d == 2 else i1 * 9 + i2 * 3 + i3
+        plasti.append([" ".join(f"{znak(lam[celica(i1, i2)]):>2}" for i1 in range(3)) for i2 in (2, 1, 0)])
+    return ["      " + "     ".join(vrstica) for vrstica in zip(*plasti)]
+
 def zmanjsana_razlicica(ime, d, p, tocki, H, Z, nedol, dol, rng):
     Hn = H[:, nedol]; k = len(nedol)
     print(f"zmanjšana različica: neznanke le uteži celic, H_n^T: {k} x {H.shape[0]}")
@@ -237,12 +248,17 @@ def zmanjsana_razlicica(ime, d, p, tocki, H, Z, nedol, dol, rng):
     vr, imena = neenacbe_podatkov(d, tocki), imena_pogojev(d, tocki); n = 2 * d + 2
     neimenovanih = 0
     print("neenakosti (vsaka je pogoj združljivosti ali urejenost koordinat):")
+    if d <= 3:
+        print("   pod vsako so uteži celic lambda: stolpci [0, s1], [s1, l1], [l1, 1], vrstice od zgoraj "
+              "[l2, 1], [s2, l2], [0, s2]" + (";  plasti [0, s3], [s3, l3], [l3, 1]" if d == 3 else ""))
     for lam in L:
         f = lambda x: sum(l * c for l, c in zip(lam, vektor_Hd_vd(x, d, tocki, H, Z, dol)) if l)
         im = ime_neenakosti(linearna_oblika(f, n), vr, imena)
         neimenovanih += im is None
         print(f"   {im if im else 'NI ENEGA SAMEGA POGOJA: ' + str(linearna_oblika(f, n))}"
               f"   [{sum(1 for l in lam if l)} celic]")
+        if d <= 3:
+            print("\n".join(slika_lambde(lam, d)))
     print(f"neenakosti, ki niso en sam pogoj združljivosti: {neimenovanih}")
 
     Lc = np.array(L, dtype=np.int64)

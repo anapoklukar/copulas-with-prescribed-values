@@ -6,22 +6,71 @@ zmanjšana različica: neznanke le uteži celic, H_n^T: 18 x 27
 oglišča: 16,  čas 0.0 s
 oglišča do zamenjave koordinat: 8
 neenakosti (vsaka je pogoj združljivosti ali urejenost koordinat):
+   pod vsako so uteži celic lambda: stolpci [0, s1], [s1, l1], [l1, 1], vrstice od zgoraj [l2, 1], [s2, l2], [0, s2];  plasti [0, s3], [s3, l3], [l3, 1]
    l1 <= 1   [9 celic]
+       .  .  1      .  .  1      .  .  1
+       .  .  1      .  .  1      .  .  1
+       .  .  1      .  .  1      .  .  1
    s1 <= l1   [9 celic]
+       .  1  .      .  1  .      .  1  .
+       .  1  .      .  1  .      .  1  .
+       .  1  .      .  1  .      .  1  .
    q1 >= l1 + l2 + l3 - 2   (3.2)   [7 celic]
+       .  .  1      .  .  1      1  1  2
+       .  .  .      .  .  .      .  .  1
+       .  .  .      .  .  .      .  .  1
    q1 <= l3   (3.2)   [10 celic]
+       1  1  1      1  1  1      .  .  .
+       .  .  1      .  .  1      .  .  .
+       .  .  1      .  .  1      .  .  .
    l2 <= 1   [9 celic]
+       1  1  1      1  1  1      1  1  1
+       .  .  .      .  .  .      .  .  .
+       .  .  .      .  .  .      .  .  .
    q1 - q2 <= d_+(x1, x2)   (3.3)   [16 celic]
+       .  1  .      1  2  1      .  1  .
+       .  1  1      1  2  2      1  2  1
+       .  .  .      .  1  1      .  1  .
    q2 <= s3   (3.2)   [8 celic]
+       1  1  1      .  .  .      .  .  .
+       1  1  1      .  .  .      .  .  .
+       .  1  1      .  .  .      .  .  .
    s2 <= l2   [9 celic]
+       .  .  .      .  .  .      .  .  .
+       1  1  1      1  1  1      1  1  1
+       .  .  .      .  .  .      .  .  .
    q1 <= l2   (3.2)   [10 celic]
+       .  .  .      .  .  .      .  .  .
+       .  .  1      .  .  1      1  1  1
+       .  .  1      .  .  1      1  1  1
    l3 <= 1   [9 celic]
+       .  .  .      .  .  .      1  1  1
+       .  .  .      .  .  .      1  1  1
+       .  .  .      .  .  .      1  1  1
    q1 <= l1   (3.2)   [10 celic]
+       1  1  .      1  1  .      1  1  .
+       .  .  .      .  .  .      1  1  .
+       .  .  .      .  .  .      1  1  .
    s3 <= l3   [9 celic]
+       .  .  .      1  1  1      .  .  .
+       .  .  .      1  1  1      .  .  .
+       .  .  .      1  1  1      .  .  .
    q2 - q1 <= d_+(x2, x1)   (3.3)   [7 celic]
+       .  .  .      .  .  .      .  .  .
+       1  1  .      1  1  .      .  .  .
+       .  1  .      1  1  .      .  .  .
    q2 <= s2   (3.2)   [8 celic]
+       .  .  .      .  .  .      .  .  .
+       .  .  .      .  .  .      .  .  .
+       .  1  1      1  1  1      1  1  1
    q2 <= s1   (3.2)   [8 celic]
+       1  .  .      1  .  .      1  .  .
+       1  .  .      1  .  .      1  .  .
+       .  .  .      1  .  .      1  .  .
    q2 >= 0   (3.2)   [1 celic]
+       .  .  .      .  .  .      .  .  .
+       .  .  .      .  .  .      .  .  .
+       1  .  .      .  .  .      .  .  .
 neenakosti, ki niso en sam pogoj združljivosti: 0
 (a) oglišča politopa podatkov: 27;  najmanjša vrednost = 0
 (b) kontrola: oglišča = zmanjšani sistem = polni sistem v 300/300 primerih (od tega brez rešitve: 212)
