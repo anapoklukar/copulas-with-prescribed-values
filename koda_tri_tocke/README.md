@@ -10,7 +10,7 @@ Koda za točko 3: za vsako konfiguracijo treh točk preverimo, ali kopula s pred
 | `tocke.py` | sistem G v_n ≤ h za poljubno število točk in poljubno dimenzijo |
 | `testi.py` | preizkusi na primerih, kjer odgovor poznamo |
 | `tri_tocke.py` | preverjanje za eno ali vse konfiguracije |
-| `zmanjsano_tri.py` | zmanjšana različica: oglišča stožca {λ ≥ 0, H_n^T λ = 0} za vseh deset konfiguracij (izpis `izhod_zmanjsano_tri.txt`) |
+| `zmanjsano_tri.py` | zmanjšana različica: oglišča stožca {λ ≥ 0, H_n^T λ = 0} za vse konfiguracije v dimenziji 3, 4 ali 5 (izpisi `izhod_zmanjsano_tri.txt`, `izhod_zmanjsano_tri_4d.txt`, `izhod_zmanjsano_tri_5d.txt`) |
 | `zmanjsano.py` | pomožne funkcije za zmanjšano različico |
 
 ## Uporaba
@@ -20,7 +20,9 @@ Iz te mape, z okoljem, v katerem so nameščeni `pycddlib-standalone`, `numpy`, 
     python testi.py              # približno 10 sekund
     python tri_tocke.py K8       # ena konfiguracija
     python tri_tocke.py vse      # vseh deset, približno minuto
-    python zmanjsano_tri.py      # zmanjšana različica, nekaj sekund (potrebuje še pynormaliz)
+    python zmanjsano_tri.py      # zmanjšana različica v 3D, nekaj sekund (potrebuje še pynormaliz)
+    python zmanjsano_tri.py 4    # 4D, 24 konfiguracij, približno pol minute
+    python zmanjsano_tri.py 5    # 5D, 42 konfiguracij, približno 70 minut
 
 ## Kaj preverja `testi.py`
 
@@ -61,3 +63,16 @@ Vsako oglišče stožca da linearno neenakost v podatkih. Neenakost je bodisi po
 | K10 | 31 | 27 | 4 |
 
 V vseh konfiguracijah so vsi pogoji združljivosti med oglišči. Vsak dodaten pogoj je kršen v kakšnem oglišču politopa združljivih podatkov, zato v K1 in K3 kopula vedno obstaja, v ostalih osmih pa ne. To se ujema z izpisom `tri_tocke.py`.
+
+## Štiri in pet dimenzij
+
+Konfiguracij je 24 v štirih in 42 v petih dimenzijah (preverjeno tudi z Burnsidovo lemo: 3456 / 144 in 30240 / 720). Kot v treh dimenzijah so vsi pogoji združljivosti med oglišči in vsak dodaten pogoj je kršen v kakšnem oglišču politopa združljivih podatkov.
+
+| dimenzija | konfiguracij | oglišč | pogojev združljivosti | število dodatnih pogojev (koliko konfiguracij) | čas na konfiguracijo |
+|---|---|---|---|---|---|
+| 3 | 10 | 24–32 | 24–28 | 0 (2), 2 (6), 4 (2) | manj kot 1 s |
+| 4 | 24 | 30–45 | 30–36 | 0 (3), 3 (8), 4 (6), 9 (7) | približno 1,5 s |
+| 5 | 42 | 36–56 | 36–42 | 0 (3), 4 (10), 5 (12), 12 (8), 14 (9) | približno 100 s |
+
+Brez dodatnih pogojev so v vseh treh dimenzijah natanko konfiguracije, v katerih je ena od točk na vseh oseh največja (v 3D K1 in K3, v 4D in 5D K1, K3 in K5). Če je ena točka na vseh oseh najmanjša, to ne zadošča (npr. K2).
+

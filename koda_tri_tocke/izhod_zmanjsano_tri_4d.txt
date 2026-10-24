@@ -1,0 +1,162 @@
+K1  osi ['ABC', 'ABC', 'ABC', 'ABC']:  oglišč 30, pogojev združljivosti 30 (vsi med oglišči: True), dodatnih 0, od teh res novih 0;  čas 1.3 s
+K2  osi ['ABC', 'ABC', 'ABC', 'ACB']:  oglišč 35, pogojev združljivosti 32 (vsi med oglišči: True), dodatnih 3, od teh res novih 3;  čas 1.3 s
+   - x_A + x_B - y_A + y_B - z_A + z_B + z_C - w_A + w_C + q_A - q_B - q_C >= 0   (celic 216, uteži [1, 2, 3, 4])
+   - x_A + x_B - y_A + y_B + y_C - z_A + z_B - w_A + w_C + q_A - q_B - q_C >= 0   (celic 216, uteži [1, 2, 3, 4])
+   - x_A + x_B + x_C - y_A + y_B - z_A + z_B - w_A + w_C + q_A - q_B - q_C >= 0   (celic 216, uteži [1, 2, 3, 4])
+K3  osi ['ABC', 'ABC', 'ABC', 'BAC']:  oglišč 32, pogojev združljivosti 32 (vsi med oglišči: True), dodatnih 0, od teh res novih 0;  čas 1.3 s
+K4  osi ['ABC', 'ABC', 'ACB', 'ACB']:  oglišč 37, pogojev združljivosti 33 (vsi med oglišči: True), dodatnih 4, od teh res novih 4;  čas 1.4 s
+   - x_A + x_B - y_A + y_B - z_A + z_C - w_A + w_C + w_B + q_A - q_B - q_C >= 0   (celic 218, uteži [1, 2, 3, 4])
+   - x_A + x_B - y_A + y_B - z_A + z_C + z_B - w_A + w_C + q_A - q_B - q_C >= 0   (celic 218, uteži [1, 2, 3, 4])
+   - x_A + x_B - y_A + y_B + y_C - z_A + z_C - w_A + w_C + q_A - q_B - q_C >= 0   (celic 218, uteži [1, 2, 3, 4])
+   - x_A + x_B + x_C - y_A + y_B - z_A + z_C - w_A + w_C + q_A - q_B - q_C >= 0   (celic 218, uteži [1, 2, 3, 4])
+K5  osi ['ABC', 'ABC', 'BAC', 'BAC']:  oglišč 33, pogojev združljivosti 33 (vsi med oglišči: True), dodatnih 0, od teh res novih 0;  čas 1.3 s
+K6  osi ['ABC', 'ABC', 'ABC', 'CAB']:  oglišč 35, pogojev združljivosti 32 (vsi med oglišči: True), dodatnih 3, od teh res novih 3;  čas 1.3 s
+   - x_A + x_B - y_A + y_B - z_A + z_B + z_C + q_A - q_B - q_C >= 0   (celic 208, uteži [1, 2, 3, 4])
+   - x_A + x_B - y_A + y_B + y_C - z_A + z_B + q_A - q_B - q_C >= 0   (celic 208, uteži [1, 2, 3, 4])
+   - x_A + x_B + x_C - y_A + y_B - z_A + z_B + q_A - q_B - q_C >= 0   (celic 208, uteži [1, 2, 3, 4])
+K7  osi ['ABC', 'ABC', 'ABC', 'BCA']:  oglišč 36, pogojev združljivosti 33 (vsi med oglišči: True), dodatnih 3, od teh res novih 3;  čas 1.4 s
+   + z_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 186, uteži [1, 2])
+   + y_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 186, uteži [1, 2])
+   + x_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 186, uteži [1, 2])
+K8  osi ['ABC', 'ABC', 'ACB', 'BAC']:  oglišč 35, pogojev združljivosti 32 (vsi med oglišči: True), dodatnih 3, od teh res novih 3;  čas 1.7 s
+   - x_A + x_B - y_A + y_B - z_A + z_C + w_C + q_A - q_B - q_C >= 0   (celic 214, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_B + y_C - z_A + z_C + q_A - q_B - q_C >= 0   (celic 205, uteži [1, 2, 3, 4])
+   - x_A + x_B + x_C - y_A + y_B - z_A + z_C + q_A - q_B - q_C >= 0   (celic 205, uteži [1, 2, 3, 4])
+K9  osi ['ABC', 'ABC', 'ACB', 'CAB']:  oglišč 37, pogojev združljivosti 33 (vsi med oglišči: True), dodatnih 4, od teh res novih 4;  čas 1.4 s
+   - x_A + x_B - y_A + y_B - z_A + z_C + w_B + q_A - q_B - q_C >= 0   (celic 218, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_B - z_A + z_C + z_B + q_A - q_B - q_C >= 0   (celic 209, uteži [1, 2, 3, 4])
+   - x_A + x_B - y_A + y_B + y_C - z_A + z_C + q_A - q_B - q_C >= 0   (celic 209, uteži [1, 2, 3, 4])
+   - x_A + x_B + x_C - y_A + y_B - z_A + z_C + q_A - q_B - q_C >= 0   (celic 209, uteži [1, 2, 3, 4])
+K10  osi ['ABC', 'ABC', 'BAC', 'BCA']:  oglišč 36, pogojev združljivosti 33 (vsi med oglišči: True), dodatnih 3, od teh res novih 3;  čas 1.4 s
+   - z_B + z_A + z_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 190, uteži [1, 2, 3])
+   + y_C - z_B + z_A - w_B + w_C - q_A + q_B - q_C >= 0   (celic 202, uteži [1, 2, 3])
+   + x_C - z_B + z_A - w_B + w_C - q_A + q_B - q_C >= 0   (celic 202, uteži [1, 2, 3])
+K11  osi ['ABC', 'ABC', 'CAB', 'CAB']:  oglišč 38, pogojev združljivosti 34 (vsi med oglišči: True), dodatnih 4, od teh res novih 4;  čas 1.4 s
+   - x_A + x_B - y_A + y_B + w_B + q_A - q_B - q_C >= 0   (celic 209, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_B + z_B + q_A - q_B - q_C >= 0   (celic 209, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_B + y_C + q_A - q_B - q_C >= 0   (celic 197, uteži [1, 2, 3])
+   - x_A + x_B + x_C - y_A + y_B + q_A - q_B - q_C >= 0   (celic 197, uteži [1, 2, 3])
+K12  osi ['ABC', 'ABC', 'ABC', 'CBA']:  oglišč 35, pogojev združljivosti 32 (vsi med oglišči: True), dodatnih 3, od teh res novih 3;  čas 1.4 s
+   + z_C - q_A + q_B - q_C >= 0   (celic 171, uteži [1, 2])
+   + y_C - q_A + q_B - q_C >= 0   (celic 171, uteži [1, 2])
+   + x_C - q_A + q_B - q_C >= 0   (celic 171, uteži [1, 2])
+K13  osi ['ABC', 'ABC', 'ACB', 'BCA']:  oglišč 43, pogojev združljivosti 34 (vsi med oglišči: True), dodatnih 9, od teh res novih 9;  čas 1.4 s
+   + z_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 151, uteži [1, 2])
+   + y_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 195, uteži [1, 2])
+   + x_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 195, uteži [1, 2])
+   + y_B - q_A - q_B + q_C >= 0   (celic 134, uteži [1, 2])
+   + x_B - q_A - q_B + q_C >= 0   (celic 134, uteži [1, 2])
+   - x_A + x_B - y_A + y_B - z_A + z_C + w_C + q_A - q_B - q_C >= 0   (celic 192, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_B + y_C - z_A + z_C + q_A - q_B - q_C >= 0   (celic 209, uteži [1, 2, 3, 4])
+   - x_A + x_B + x_C - y_A + y_B - z_A + z_C + q_A - q_B - q_C >= 0   (celic 209, uteži [1, 2, 3, 4])
+   - x_A - x_C - y_A - y_C - z_A - z_B - w_B - w_A + q_A + q_B + q_C + 6 >= 0   (celic 239, uteži [1, 2, 3, 4, 5, 6])
+K14  osi ['ABC', 'ABC', 'ACB', 'CBA']:  oglišč 44, pogojev združljivosti 35 (vsi med oglišči: True), dodatnih 9, od teh res novih 9;  čas 1.4 s
+   + y_B - w_C + w_B - q_A - q_B + q_C >= 0   (celic 159, uteži [1, 2])
+   + x_B - w_C + w_B - q_A - q_B + q_C >= 0   (celic 159, uteži [1, 2])
+   + z_C - q_A + q_B - q_C >= 0   (celic 124, uteži [1, 2])
+   + y_C - q_A + q_B - q_C >= 0   (celic 180, uteži [1, 2])
+   + x_C - q_A + q_B - q_C >= 0   (celic 180, uteži [1, 2])
+   - x_A + x_B - y_A + y_B - z_A + z_C + w_B + q_A - q_B - q_C >= 0   (celic 194, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_B + y_C - z_A + z_C + q_A - q_B - q_C >= 0   (celic 211, uteži [1, 2, 3, 4])
+   - x_A + x_B + x_C - y_A + y_B - z_A + z_C + q_A - q_B - q_C >= 0   (celic 211, uteži [1, 2, 3, 4])
+   - x_A - x_C - y_A - y_C - z_A - z_B - w_C - w_A + q_A + q_B + q_C + 6 >= 0   (celic 238, uteži [1, 2, 3, 4, 5, 6])
+K15  osi ['ABC', 'ABC', 'BAC', 'CAB']:  oglišč 36, pogojev združljivosti 33 (vsi med oglišči: True), dodatnih 3, od teh res novih 3;  čas 1.9 s
+   - x_A + x_B - y_A + y_B + z_C + q_A - q_B - q_C >= 0   (celic 206, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_B + y_C + q_A - q_B - q_C >= 0   (celic 194, uteži [1, 2, 3])
+   - x_A + x_B + x_C - y_A + y_B + q_A - q_B - q_C >= 0   (celic 194, uteži [1, 2, 3])
+K16  osi ['ABC', 'ABC', 'BAC', 'CBA']:  oglišč 37, pogojev združljivosti 34 (vsi med oglišči: True), dodatnih 3, od teh res novih 3;  čas 1.5 s
+   - z_B + z_A + z_C - q_A + q_B - q_C >= 0   (celic 175, uteži [1, 2])
+   + y_C - z_B + z_A - q_A + q_B - q_C >= 0   (celic 191, uteži [1, 2])
+   + x_C - z_B + z_A - q_A + q_B - q_C >= 0   (celic 191, uteži [1, 2])
+K17  osi ['ABC', 'ABC', 'CAB', 'BCA']:  oglišč 43, pogojev združljivosti 34 (vsi med oglišči: True), dodatnih 9, od teh res novih 9;  čas 1.5 s
+   + z_A - w_B + w_C - q_A + q_B - q_C >= 0   (celic 155, uteži [1, 2])
+   + y_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 199, uteži [1, 2])
+   + x_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 199, uteži [1, 2])
+   + y_B - z_C + z_A - q_A - q_B + q_C >= 0   (celic 159, uteži [1, 2])
+   + x_B - z_C + z_A - q_A - q_B + q_C >= 0   (celic 159, uteži [1, 2])
+   - x_A + x_B - y_A + y_B + w_C + q_A - q_B - q_C >= 0   (celic 176, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_B + y_C + q_A - q_B - q_C >= 0   (celic 198, uteži [1, 2, 3])
+   - x_A + x_B + x_C - y_A + y_B + q_A - q_B - q_C >= 0   (celic 198, uteži [1, 2, 3])
+   - x_A - x_C - y_A - y_C - z_C - z_B - w_B - w_A + q_A + q_B + q_C + 6 >= 0   (celic 238, uteži [1, 2, 3, 4, 5, 6])
+K18  osi ['ABC', 'ABC', 'CAB', 'CBA']:  oglišč 44, pogojev združljivosti 35 (vsi med oglišči: True), dodatnih 9, od teh res novih 9;  čas 1.7 s
+   + y_B - z_C + z_A - w_C + w_B - q_A - q_B + q_C >= 0   (celic 179, uteži [1, 2, 3])
+   + x_B - z_C + z_A - w_C + w_B - q_A - q_B + q_C >= 0   (celic 179, uteži [1, 2, 3])
+   + z_A - q_A + q_B - q_C >= 0   (celic 128, uteži [1, 2])
+   + y_C - q_A + q_B - q_C >= 0   (celic 184, uteži [1, 2])
+   + x_C - q_A + q_B - q_C >= 0   (celic 184, uteži [1, 2])
+   - x_A + x_B - y_A + y_B + w_B + q_A - q_B - q_C >= 0   (celic 178, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_B + y_C + q_A - q_B - q_C >= 0   (celic 200, uteži [1, 2, 3])
+   - x_A + x_B + x_C - y_A + y_B + q_A - q_B - q_C >= 0   (celic 200, uteži [1, 2, 3])
+   - x_A - x_C - y_A - y_C - z_C - z_B - w_C - w_A + q_A + q_B + q_C + 6 >= 0   (celic 237, uteži [1, 2, 3, 4, 5, 6])
+K19  osi ['ABC', 'ABC', 'BCA', 'CBA']:  oglišč 39, pogojev združljivosti 35 (vsi med oglišči: True), dodatnih 4, od teh res novih 4;  čas 1.5 s
+   - z_B + z_C + w_A - q_A + q_B - q_C >= 0   (celic 197, uteži [1, 2])
+   - z_B + z_C + z_A - q_A + q_B - q_C >= 0   (celic 181, uteži [1, 2])
+   + y_C - z_B + z_C - q_A + q_B - q_C >= 0   (celic 197, uteži [1, 2])
+   + x_C - z_B + z_C - q_A + q_B - q_C >= 0   (celic 197, uteži [1, 2])
+K20  osi ['ABC', 'ABC', 'CBA', 'CBA']:  oglišč 38, pogojev združljivosti 34 (vsi med oglišči: True), dodatnih 4, od teh res novih 4;  čas 1.8 s
+   + w_A - q_A + q_B - q_C >= 0   (celic 181, uteži [1, 2])
+   + z_A - q_A + q_B - q_C >= 0   (celic 181, uteži [1, 2])
+   + y_C - q_A + q_B - q_C >= 0   (celic 181, uteži [1, 2])
+   + x_C - q_A + q_B - q_C >= 0   (celic 181, uteži [1, 2])
+K21  osi ['ABC', 'ACB', 'BAC', 'CAB']:  oglišč 38, pogojev združljivosti 34 (vsi med oglišči: True), dodatnih 4, od teh res novih 4;  čas 1.4 s
+   - x_A + x_B - y_A + y_C + w_B + q_A - q_B - q_C >= 0   (celic 209, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_C + z_C + q_A - q_B - q_C >= 0   (celic 209, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_C + y_B + q_A - q_B - q_C >= 0   (celic 197, uteži [1, 2, 3])
+   - x_A + x_B + x_C - y_A + y_C + q_A - q_B - q_C >= 0   (celic 197, uteži [1, 2, 3])
+K22  osi ['ABC', 'ACB', 'BAC', 'BCA']:  oglišč 43, pogojev združljivosti 34 (vsi med oglišči: True), dodatnih 9, od teh res novih 9;  čas 1.4 s
+   - z_B + z_A + z_C - w_B + w_C - q_A + q_B - q_C >= 0   (celic 196, uteži [1, 2, 3])
+   + y_C - z_B + z_A - w_B + w_C - q_A + q_B - q_C >= 0   (celic 174, uteži [1, 2, 3])
+   + x_C - z_B + z_A - w_B + w_C - q_A + q_B - q_C >= 0   (celic 208, uteži [1, 2, 3])
+   + z_A - q_A - q_B + q_C >= 0   (celic 135, uteži [1, 2])
+   + x_B - q_A - q_B + q_C >= 0   (celic 135, uteži [1, 2])
+   - x_A + x_B - y_A + y_C + w_C + q_A - q_B - q_C >= 0   (celic 174, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_C + z_C + q_A - q_B - q_C >= 0   (celic 208, uteži [1, 2, 3])
+   - x_A + x_B + x_C - y_A + y_C + q_A - q_B - q_C >= 0   (celic 196, uteži [1, 2, 3])
+   - x_A - x_C - y_A - y_B - z_B - z_C - w_B - w_A + q_A + q_B + q_C + 6 >= 0   (celic 239, uteži [1, 2, 3, 4, 5, 6])
+K23  osi ['ABC', 'ACB', 'BAC', 'CBA']:  oglišč 44, pogojev združljivosti 35 (vsi med oglišči: True), dodatnih 9, od teh res novih 9;  čas 1.5 s
+   + z_A - w_C + w_B - q_A - q_B + q_C >= 0   (celic 160, uteži [1, 2])
+   + x_B - w_C + w_B - q_A - q_B + q_C >= 0   (celic 160, uteži [1, 2])
+   - z_B + z_A + z_C - q_A + q_B - q_C >= 0   (celic 181, uteži [1, 2])
+   + y_C - z_B + z_A - q_A + q_B - q_C >= 0   (celic 153, uteži [1, 2])
+   + x_C - z_B + z_A - q_A + q_B - q_C >= 0   (celic 197, uteži [1, 2])
+   - x_A + x_B - y_A + y_C + w_B + q_A - q_B - q_C >= 0   (celic 177, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_C + z_C + q_A - q_B - q_C >= 0   (celic 211, uteži [1, 2, 3])
+   - x_A + x_B + x_C - y_A + y_C + q_A - q_B - q_C >= 0   (celic 199, uteži [1, 2, 3])
+   - x_A - x_C - y_A - y_B - z_B - z_C - w_C - w_A + q_A + q_B + q_C + 6 >= 0   (celic 238, uteži [1, 2, 3, 4, 5, 6])
+K24  osi ['ABC', 'ACB', 'BCA', 'CBA']:  oglišč 45, pogojev združljivosti 36 (vsi med oglišči: True), dodatnih 9, od teh res novih 9;  čas 1.3 s
+   - w_C + w_B + w_A - q_A - q_B + q_C >= 0   (celic 184, uteži [1, 2])
+   + z_A - w_C + w_B - q_A - q_B + q_C >= 0   (celic 200, uteži [1, 2])
+   + x_B - w_C + w_B - q_A - q_B + q_C >= 0   (celic 156, uteži [1, 2])
+   - z_B + z_C + w_A - q_A + q_B - q_C >= 0   (celic 200, uteži [1, 2])
+   - z_B + z_C + z_A - q_A + q_B - q_C >= 0   (celic 184, uteži [1, 2])
+   + y_C - z_B + z_C - q_A + q_B - q_C >= 0   (celic 156, uteži [1, 2])
+   - x_A + x_B - y_A + y_C + w_B + q_A - q_B - q_C >= 0   (celic 180, uteži [1, 2, 3])
+   - x_A + x_B - y_A + y_C + z_C + q_A - q_B - q_C >= 0   (celic 180, uteži [1, 2, 3])
+   - x_A - x_C - y_A - y_B - z_B - z_A - w_C - w_A + q_A + q_B + q_C + 6 >= 0   (celic 237, uteži [1, 2, 3, 4, 5, 6])
+
+Povzetek (dimenzija 4)
+konf.  oglišč  pogojev združljivosti  dodatnih  oglišč politopa podatkov
+K1         30                     30         0                       256
+K2         35                     32         3                       275
+K3         32                     32         0                       256
+K4         37                     33         4                       287
+K5         33                     33         0                       256
+K6         35                     32         3                       275
+K7         36                     33         3                       287
+K8         35                     32         3                       279
+K9         37                     33         4                       290
+K10        36                     33         3                       283
+K11        38                     34         4                       293
+K12        35                     32         3                       287
+K13        43                     34         9                       314
+K14        44                     35         9                       312
+K15        36                     33         3                       279
+K16        37                     34         3                       283
+K17        43                     34         9                       312
+K18        44                     35         9                       310
+K19        39                     35         4                       296
+K20        38                     34         4                       299
+K21        38                     34         4                       293
+K22        43                     34         9                       314
+K23        44                     35         9                       312
+K24        45                     36         9                       310
