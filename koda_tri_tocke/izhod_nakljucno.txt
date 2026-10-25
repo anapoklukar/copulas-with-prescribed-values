@@ -1,0 +1,16 @@
+1. Enakomerna porazdelitev na politopu podatkov D
+   K1   osi ['ABC', 'ABC', 'ABC']:  vzorcev   20942,  brez kopule     0  (0.000 %)
+   K2   osi ['ABC', 'ABC', 'ACB']:  vzorcev   25336,  brez kopule    15  (0.059 %)
+   K3   osi ['ABC', 'ABC', 'BAC']:  vzorcev   22118,  brez kopule     0  (0.000 %)
+   K4   osi ['ABC', 'ABC', 'CAB']:  vzorcev   24204,  brez kopule    28  (0.116 %)
+   K5   osi ['ABC', 'ABC', 'BCA']:  vzorcev   25593,  brez kopule    28  (0.109 %)
+   K6   osi ['ABC', 'ACB', 'BAC']:  vzorcev   25632,  brez kopule    27  (0.105 %)
+   K7   osi ['ABC', 'ABC', 'CBA']:  vzorcev   25764,  brez kopule    64  (0.248 %)
+   K8   osi ['ABC', 'ACB', 'BCA']:  vzorcev   31666,  brez kopule   195  (0.616 %)
+   K9   osi ['ABC', 'BAC', 'CAB']:  vzorcev   24377,  brez kopule    48  (0.197 %)
+   K10  osi ['ABC', 'CAB', 'BCA']:  vzorcev   30493,  brez kopule   167  (0.548 %)
+2. Tri točke enakomerno v kocki, vrednosti zaporedoma med mejami združljivosti
+   vrednosti enakomerno : vzorcev 200000,  brez kopule 211  (0.105 %)
+   vrednosti z robovi   : vzorcev 200000,  brez kopule 1082  (0.541 %)
+3. Kontrola z linearnim programom: preverjenih 80 vzorcev, neujemanj 0
+čas 17 s

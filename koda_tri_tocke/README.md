@@ -12,6 +12,7 @@ Koda za točko 3: za vsako konfiguracijo treh točk preverimo, ali kopula s pred
 | `tri_tocke.py` | preverjanje za eno ali vse konfiguracije |
 | `zmanjsano_tri.py` | zmanjšana različica: oglišča stožca {λ ≥ 0, H_n^T λ = 0} za vse konfiguracije v dimenziji 3, 4 ali 5 (izpisi `izhod_zmanjsano_tri.txt`, `izhod_zmanjsano_tri_4d.txt`, `izhod_zmanjsano_tri_5d.txt`) |
 | `zmanjsano.py` | pomožne funkcije za zmanjšano različico |
+| `nakljucno.py` | naključno iskanje: delež podatkov brez kopule (enakomerno na politopu podatkov in pri naključnih točkah v kocki), izpis `izhod_nakljucno.txt` |
 | `preveri_tocno.py` | točna kontrola izračunov iz cddlib s programom Normaliz (izpis `izhod_preveri_tocno.txt`) |
 
 ## Uporaba
