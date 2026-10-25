@@ -12,6 +12,7 @@ Koda za točko 3: za vsako konfiguracijo treh točk preverimo, ali kopula s pred
 | `tri_tocke.py` | preverjanje za eno ali vse konfiguracije |
 | `zmanjsano_tri.py` | zmanjšana različica: oglišča stožca {λ ≥ 0, H_n^T λ = 0} za vse konfiguracije v dimenziji 3, 4 ali 5 (izpisi `izhod_zmanjsano_tri.txt`, `izhod_zmanjsano_tri_4d.txt`, `izhod_zmanjsano_tri_5d.txt`) |
 | `zmanjsano.py` | pomožne funkcije za zmanjšano različico |
+| `preveri_tocno.py` | točna kontrola izračunov iz cddlib s programom Normaliz (izpis `izhod_preveri_tocno.txt`) |
 
 ## Uporaba
 
@@ -75,4 +76,14 @@ Konfiguracij je 24 v štirih in 42 v petih dimenzijah (preverjeno tudi z Burnsid
 | 5 | 42 | 36–56 | 36–42 | 0 (3), 4 (10), 5 (12), 12 (8), 14 (9) | približno 100 s |
 
 Brez dodatnih pogojev so v vseh treh dimenzijah natanko konfiguracije, v katerih je ena od točk na vseh oseh največja (v 3D K1 in K3, v 4D in 5D K1, K3 in K5). Če je ena točka na vseh oseh najmanjša, to ne zadošča (npr. K2).
+
+## Točna kontrola (`preveri_tocno.py`)
+
+Knjižnica cddlib računa s plavajočo vejico, zato vsak rezultat posebej točno preverimo, kar pa še ne zagotavlja, da nobeno oglišče ali faseta ne manjka. To preverimo s programom Normaliz, ki računa točno:
+
+- politop podatkov D (oglišča in fasete) za vseh 90 konfiguracij: dve točki v dimenzijah 2 do 6 (14), tri točke v dimenzijah 3 do 5 (10 + 24 + 42);
+- oglišča politopa Λ za dve točki v dimenzijah 2 do 6 (cddlib proti Normaliz);
+- s točnimi fasetami ponovno: za dve točki je vsako oglišče natanko ena faseta politopa D, za tri točke v 3D in 4D je število dodatnih pogojev enako kot prej.
+
+Vse se natanko ujema. Za tri točke so oglišča politopa Λ že izračunana s programom Normaliz, torej točno. Celoten zagon traja približno 8 minut.
 

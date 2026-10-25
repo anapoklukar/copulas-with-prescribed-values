@@ -1,0 +1,94 @@
+Dve točki
+  2+0: D oglišča 9 (cdd = točno: True), fasete 10 (cdd = točno: True) | Lambda 10, vse fasete med oglišči: True, dodatnih 0  (0.0 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  1+1: D oglišča 9 (cdd = točno: True), fasete 10 (cdd = točno: True) | Lambda 10, vse fasete med oglišči: True, dodatnih 0  (0.0 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  3+0: D oglišča 27 (cdd = točno: True), fasete 16 (cdd = točno: True) | Lambda 16, vse fasete med oglišči: True, dodatnih 0  (0.0 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  2+1: D oglišča 27 (cdd = točno: True), fasete 17 (cdd = točno: True) | Lambda 17, vse fasete med oglišči: True, dodatnih 0  (0.0 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  4+0: D oglišča 81 (cdd = točno: True), fasete 20 (cdd = točno: True) | Lambda 20, vse fasete med oglišči: True, dodatnih 0  (0.1 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  3+1: D oglišča 81 (cdd = točno: True), fasete 21 (cdd = točno: True) | Lambda 21, vse fasete med oglišči: True, dodatnih 0  (0.1 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  2+2: D oglišča 81 (cdd = točno: True), fasete 22 (cdd = točno: True) | Lambda 22, vse fasete med oglišči: True, dodatnih 0  (0.1 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  5+0: D oglišča 243 (cdd = točno: True), fasete 24 (cdd = točno: True) | Lambda 24, vse fasete med oglišči: True, dodatnih 0  (1.2 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  4+1: D oglišča 243 (cdd = točno: True), fasete 25 (cdd = točno: True) | Lambda 25, vse fasete med oglišči: True, dodatnih 0  (1.0 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  3+2: D oglišča 243 (cdd = točno: True), fasete 26 (cdd = točno: True) | Lambda 26, vse fasete med oglišči: True, dodatnih 0  (1.0 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  6+0: D oglišča 729 (cdd = točno: True), fasete 28 (cdd = točno: True) | Lambda 28, vse fasete med oglišči: True, dodatnih 0  (24.4 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  5+1: D oglišča 729 (cdd = točno: True), fasete 29 (cdd = točno: True) | Lambda 29, vse fasete med oglišči: True, dodatnih 0  (23.9 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  4+2: D oglišča 729 (cdd = točno: True), fasete 30 (cdd = točno: True) | Lambda 30, vse fasete med oglišči: True, dodatnih 0  (25.1 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+  3+3: D oglišča 729 (cdd = točno: True), fasete 30 (cdd = točno: True) | Lambda 30, vse fasete med oglišči: True, dodatnih 0  (24.8 s) | dve_tocki.py D: True, Lambda cdd = Normaliz: True, oglišča = fasete: True
+Tri točke
+  3D K1: D oglišča 64 (cdd = točno: True), fasete 24 (cdd = točno: True) | Lambda 24, vse fasete med oglišči: True, dodatnih 0  (0.1 s)
+  3D K2: D oglišča 67 (cdd = točno: True), fasete 26 (cdd = točno: True) | Lambda 28, vse fasete med oglišči: True, dodatnih 2  (0.1 s)
+  3D K3: D oglišča 64 (cdd = točno: True), fasete 26 (cdd = točno: True) | Lambda 26, vse fasete med oglišči: True, dodatnih 0  (0.1 s)
+  3D K4: D oglišča 67 (cdd = točno: True), fasete 26 (cdd = točno: True) | Lambda 28, vse fasete med oglišči: True, dodatnih 2  (0.1 s)
+  3D K5: D oglišča 67 (cdd = točno: True), fasete 27 (cdd = točno: True) | Lambda 29, vse fasete med oglišči: True, dodatnih 2  (0.1 s)
+  3D K6: D oglišča 67 (cdd = točno: True), fasete 26 (cdd = točno: True) | Lambda 28, vse fasete med oglišči: True, dodatnih 2  (0.1 s)
+  3D K7: D oglišča 67 (cdd = točno: True), fasete 26 (cdd = točno: True) | Lambda 28, vse fasete med oglišči: True, dodatnih 2  (0.1 s)
+  3D K8: D oglišča 71 (cdd = točno: True), fasete 28 (cdd = točno: True) | Lambda 32, vse fasete med oglišči: True, dodatnih 4  (0.1 s)
+  3D K9: D oglišča 67 (cdd = točno: True), fasete 27 (cdd = točno: True) | Lambda 29, vse fasete med oglišči: True, dodatnih 2  (0.1 s)
+  3D K10: D oglišča 71 (cdd = točno: True), fasete 27 (cdd = točno: True) | Lambda 31, vse fasete med oglišči: True, dodatnih 4  (0.1 s)
+  4D K1: D oglišča 256 (cdd = točno: True), fasete 30 (cdd = točno: True) | Lambda 30, vse fasete med oglišči: True, dodatnih 0  (1.2 s)
+  4D K2: D oglišča 275 (cdd = točno: True), fasete 32 (cdd = točno: True) | Lambda 35, vse fasete med oglišči: True, dodatnih 3  (1.3 s)
+  4D K3: D oglišča 256 (cdd = točno: True), fasete 32 (cdd = točno: True) | Lambda 32, vse fasete med oglišči: True, dodatnih 0  (1.2 s)
+  4D K4: D oglišča 287 (cdd = točno: True), fasete 33 (cdd = točno: True) | Lambda 37, vse fasete med oglišči: True, dodatnih 4  (1.3 s)
+  4D K5: D oglišča 256 (cdd = točno: True), fasete 33 (cdd = točno: True) | Lambda 33, vse fasete med oglišči: True, dodatnih 0  (1.2 s)
+  4D K6: D oglišča 275 (cdd = točno: True), fasete 32 (cdd = točno: True) | Lambda 35, vse fasete med oglišči: True, dodatnih 3  (1.3 s)
+  4D K7: D oglišča 287 (cdd = točno: True), fasete 33 (cdd = točno: True) | Lambda 36, vse fasete med oglišči: True, dodatnih 3  (1.3 s)
+  4D K8: D oglišča 279 (cdd = točno: True), fasete 32 (cdd = točno: True) | Lambda 35, vse fasete med oglišči: True, dodatnih 3  (1.4 s)
+  4D K9: D oglišča 290 (cdd = točno: True), fasete 33 (cdd = točno: True) | Lambda 37, vse fasete med oglišči: True, dodatnih 4  (1.4 s)
+  4D K10: D oglišča 283 (cdd = točno: True), fasete 33 (cdd = točno: True) | Lambda 36, vse fasete med oglišči: True, dodatnih 3  (1.6 s)
+  4D K11: D oglišča 293 (cdd = točno: True), fasete 34 (cdd = točno: True) | Lambda 38, vse fasete med oglišči: True, dodatnih 4  (1.3 s)
+  4D K12: D oglišča 287 (cdd = točno: True), fasete 32 (cdd = točno: True) | Lambda 35, vse fasete med oglišči: True, dodatnih 3  (1.3 s)
+  4D K13: D oglišča 314 (cdd = točno: True), fasete 34 (cdd = točno: True) | Lambda 43, vse fasete med oglišči: True, dodatnih 9  (1.3 s)
+  4D K14: D oglišča 312 (cdd = točno: True), fasete 35 (cdd = točno: True) | Lambda 44, vse fasete med oglišči: True, dodatnih 9  (1.4 s)
+  4D K15: D oglišča 279 (cdd = točno: True), fasete 33 (cdd = točno: True) | Lambda 36, vse fasete med oglišči: True, dodatnih 3  (1.4 s)
+  4D K16: D oglišča 283 (cdd = točno: True), fasete 34 (cdd = točno: True) | Lambda 37, vse fasete med oglišči: True, dodatnih 3  (1.4 s)
+  4D K17: D oglišča 312 (cdd = točno: True), fasete 34 (cdd = točno: True) | Lambda 43, vse fasete med oglišči: True, dodatnih 9  (1.6 s)
+  4D K18: D oglišča 310 (cdd = točno: True), fasete 35 (cdd = točno: True) | Lambda 44, vse fasete med oglišči: True, dodatnih 9  (1.4 s)
+  4D K19: D oglišča 296 (cdd = točno: True), fasete 35 (cdd = točno: True) | Lambda 39, vse fasete med oglišči: True, dodatnih 4  (1.3 s)
+  4D K20: D oglišča 299 (cdd = točno: True), fasete 34 (cdd = točno: True) | Lambda 38, vse fasete med oglišči: True, dodatnih 4  (1.4 s)
+  4D K21: D oglišča 293 (cdd = točno: True), fasete 34 (cdd = točno: True) | Lambda 38, vse fasete med oglišči: True, dodatnih 4  (1.4 s)
+  4D K22: D oglišča 314 (cdd = točno: True), fasete 34 (cdd = točno: True) | Lambda 43, vse fasete med oglišči: True, dodatnih 9  (1.4 s)
+  4D K23: D oglišča 312 (cdd = točno: True), fasete 35 (cdd = točno: True) | Lambda 44, vse fasete med oglišči: True, dodatnih 9  (1.4 s)
+  4D K24: D oglišča 310 (cdd = točno: True), fasete 36 (cdd = točno: True) | Lambda 45, vse fasete med oglišči: True, dodatnih 9  (1.4 s)
+  5D K1: D oglišča 1024 (cdd = točno: True), fasete 36 (cdd = točno: True)  (1.6 s)
+  5D K2: D oglišča 1107 (cdd = točno: True), fasete 38 (cdd = točno: True)  (1.5 s)
+  5D K3: D oglišča 1024 (cdd = točno: True), fasete 38 (cdd = točno: True)  (1.4 s)
+  5D K4: D oglišča 1185 (cdd = točno: True), fasete 39 (cdd = točno: True)  (1.6 s)
+  5D K5: D oglišča 1024 (cdd = točno: True), fasete 39 (cdd = točno: True)  (1.5 s)
+  5D K6: D oglišča 1107 (cdd = točno: True), fasete 38 (cdd = točno: True)  (1.5 s)
+  5D K7: D oglišča 1247 (cdd = točno: True), fasete 39 (cdd = točno: True)  (1.7 s)
+  5D K8: D oglišča 1133 (cdd = točno: True), fasete 38 (cdd = točno: True)  (1.6 s)
+  5D K9: D oglišča 1204 (cdd = točno: True), fasete 39 (cdd = točno: True)  (1.7 s)
+  5D K10: D oglišča 1203 (cdd = točno: True), fasete 39 (cdd = točno: True)  (1.6 s)
+  5D K11: D oglišča 1223 (cdd = točno: True), fasete 40 (cdd = točno: True)  (1.7 s)
+  5D K12: D oglišča 1308 (cdd = točno: True), fasete 40 (cdd = točno: True)  (1.7 s)
+  5D K13: D oglišča 1223 (cdd = točno: True), fasete 39 (cdd = točno: True)  (1.7 s)
+  5D K14: D oglišča 1165 (cdd = točno: True), fasete 39 (cdd = točno: True)  (1.6 s)
+  5D K15: D oglišča 1264 (cdd = točno: True), fasete 40 (cdd = točno: True)  (1.7 s)
+  5D K16: D oglišča 1247 (cdd = točno: True), fasete 38 (cdd = točno: True)  (1.7 s)
+  5D K17: D oglišča 1375 (cdd = točno: True), fasete 40 (cdd = točno: True)  (2.5 s)
+  5D K18: D oglišča 1361 (cdd = točno: True), fasete 41 (cdd = točno: True)  (2.1 s)
+  5D K19: D oglišča 1133 (cdd = točno: True), fasete 39 (cdd = točno: True)  (1.5 s)
+  5D K20: D oglišča 1203 (cdd = točno: True), fasete 40 (cdd = točno: True)  (1.8 s)
+  5D K21: D oglišča 1349 (cdd = točno: True), fasete 40 (cdd = točno: True)  (1.8 s)
+  5D K22: D oglišča 1335 (cdd = točno: True), fasete 41 (cdd = točno: True)  (2.2 s)
+  5D K23: D oglišča 1339 (cdd = točno: True), fasete 41 (cdd = točno: True)  (1.9 s)
+  5D K24: D oglišča 1370 (cdd = točno: True), fasete 40 (cdd = točno: True)  (1.8 s)
+  5D K25: D oglišča 1438 (cdd = točno: True), fasete 41 (cdd = točno: True)  (1.9 s)
+  5D K26: D oglišča 1246 (cdd = točno: True), fasete 40 (cdd = točno: True)  (1.9 s)
+  5D K27: D oglišča 1371 (cdd = točno: True), fasete 40 (cdd = točno: True)  (2.0 s)
+  5D K28: D oglišča 1353 (cdd = točno: True), fasete 41 (cdd = točno: True)  (2.0 s)
+  5D K29: D oglišča 1434 (cdd = točno: True), fasete 41 (cdd = točno: True)  (2.0 s)
+  5D K30: D oglišča 1432 (cdd = točno: True), fasete 41 (cdd = točno: True)  (2.0 s)
+  5D K31: D oglišča 1430 (cdd = točno: True), fasete 41 (cdd = točno: True)  (2.0 s)
+  5D K32: D oglišča 1430 (cdd = točno: True), fasete 42 (cdd = točno: True)  (2.1 s)
+  5D K33: D oglišča 1434 (cdd = točno: True), fasete 42 (cdd = točno: True)  (1.9 s)
+  5D K34: D oglišča 1165 (cdd = točno: True), fasete 40 (cdd = točno: True)  (1.5 s)
+  5D K35: D oglišča 1269 (cdd = točno: True), fasete 41 (cdd = točno: True)  (1.7 s)
+  5D K36: D oglišča 1349 (cdd = točno: True), fasete 41 (cdd = točno: True)  (1.7 s)
+  5D K37: D oglišča 1331 (cdd = točno: True), fasete 42 (cdd = točno: True)  (1.8 s)
+  5D K38: D oglišča 1291 (cdd = točno: True), fasete 41 (cdd = točno: True)  (1.7 s)
+  5D K39: D oglišča 1318 (cdd = točno: True), fasete 42 (cdd = točno: True)  (1.7 s)
+  5D K40: D oglišča 1434 (cdd = točno: True), fasete 41 (cdd = točno: True)  (2.0 s)
+  5D K41: D oglišča 1432 (cdd = točno: True), fasete 42 (cdd = točno: True)  (1.8 s)
+  5D K42: D oglišča 1430 (cdd = točno: True), fasete 42 (cdd = točno: True)  (1.9 s)
+
+VSE SE UJEMA
