@@ -9,7 +9,6 @@ Magistrsko delo obravnava vprašanje, ali obstaja večrazsežna kopula s predpis
 
 ## Zgradba repozitorija
 
-- `porocilo/`: poročilo o dveh predpisanih točkah v treh dimenzijah (`dve_tocki_3d.pdf`, izvorna datoteka `dve_tocki_3d.tex`).
 - `koda_dve_tocki/`: koda v jeziku Python za dve predpisani točki, z zmanjšano in prvotno različico dualnega problema. Glej `koda_dve_tocki/README.md`.
 - `koda_tri_tocke/`: koda v jeziku Python za tri predpisane točke v dimenzijah od 3 do 5 (konfiguracije, zmanjšana različica, točna kontrola s programom Normaliz, naključno iskanje). Glej `koda_tri_tocke/README.md`.
 - `slike/`: vse slike iz magistrskega dela. Slike za poglavji o teoretičnem ozadju in pristopu narišeta `slike/slike_teorija_metode.py` in `slike/slika_incidencna_3d.py`, ostale pa skripte v mapah `koda_dve_tocki/` in `koda_tri_tocke/`.
@@ -35,7 +34,6 @@ The thesis investigates the existence problem for multivariate copulas with pres
 
 ## Repository structure
 
-- `porocilo/`: report on two prescribed points in dimension 3 (`dve_tocki_3d.pdf`, source `dve_tocki_3d.tex`).
 - `koda_dve_tocki/`: Python code for two prescribed points, with and without the reduction of the dual problem. See `koda_dve_tocki/README.md`.
 - `koda_tri_tocke/`: Python code for three prescribed points in dimensions 3 to 5 (configurations, the reduced version, exact checks with Normaliz, random search). See `koda_tri_tocke/README.md`.
 - `slike/`: all figures in the thesis. Figures for the theory and method chapters are drawn by `slike/slike_teorija_metode.py` and `slike/slika_incidencna_3d.py`, the others by the scripts in `koda_dve_tocki/` and `koda_tri_tocke/`.
