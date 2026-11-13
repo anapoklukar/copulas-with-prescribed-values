@@ -9,27 +9,35 @@ FHBounds3[p_List] := {Max[0, Total[p] - 2], Min @@ p};
 
 (* Fast bounds for q2=C(v), given q1=C(u) *)
 Q2BoundsGivenQ1[u_List, v_List, q1_?NumericQ] := Module[
-  {delta, lbList, ubList, fhV, q2min, q2max},
+  {delta, fhV, lowerLip, upperLip, q2min, q2max},
   
   delta = v - u;
   fhV = FHBounds3[v];
-   
-  (* Lower bounds for q2 *)
-  lbList = {0, fhV[[1]]};
-  lbList = Join[lbList, q1 + Select[delta, # < 0 &]];
-  If[And @@ Thread[u <= v], lbList = Append[lbList, q1]];
-   
-  (* Upper bounds for q2 *)
-  ubList = {1, fhV[[2]]};
-  ubList = Join[ubList, q1 + Select[delta, # > 0 &]];
-  If[And @@ Thread[v <= u], ubList = Append[ubList, q1]];
-   
-  q2min = Max[lbList];
-  q2max = Min[ubList];
-   
-  (* Numeric safety *)
-  q2min = Max[0, q2min];
-  q2max = Min[1, q2max];
+  
+  (* Coordinatewise Lipschitz/monotonicity bounds *)
+  lowerLip = q1 + Total[Select[delta, # < 0 &]];
+  upperLip = q1 + Total[Select[delta, # > 0 &]];
+  
+  q2min = Max[
+    0,
+    fhV[[1]],
+    lowerLip
+  ];
+  
+  q2max = Min[
+    1,
+    fhV[[2]],
+    upperLip
+  ];
+  
+  (* Extra monotonicity if the points are comparable *)
+  If[And @@ Thread[u <= v],
+    q2min = Max[q2min, q1]
+  ];
+  
+  If[And @@ Thread[v <= u],
+    q2max = Min[q2max, q1]
+  ];
   
   {q2min, q2max}
 ];
@@ -151,3 +159,7 @@ Dim3TwoPointsTestMany[n_Integer : 50] := Module[{rezultati},
     "Uspehi" -> Count[rezultati, a_ /; TrueQ[a["Dopustno?"]]],
     "Neuspehi" -> Count[rezultati, a_ /; KeyExistsQ[a, "Dopustno?"] && ! TrueQ[a["Dopustno?"]]]|>
 ];
+
+Print["Running 100 3D two-point tests..."];
+summary = Dim3TwoPointsTestMany[100];
+Print[summary];

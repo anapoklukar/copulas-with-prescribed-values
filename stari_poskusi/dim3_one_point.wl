@@ -88,3 +88,7 @@ Dim3OnePointTestMany[n_Integer : 100] := Module[{results, successCount, failCoun
   failCount = n - successCount;
   <|"TotalRuns" -> n, "Successes" -> successCount, "Failures" -> failCount|>
 ];
+
+Print["Running 100 tests..."];
+summary = Dim3OnePointTestMany[100];
+Print[summary];
