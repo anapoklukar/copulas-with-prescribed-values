@@ -1,9 +1,37 @@
+# Obstoj kopul s predpisanimi vrednostmi z uporabo linearnega programiranja
+
+*[English version below](#existence-of-copulas-with-prescribed-values-using-linear-programming)*
+
+Repozitorij vsebuje kodo in dodatno gradivo k magistrskemu delu z naslovom
+**Obstoj kopul s predpisanimi vrednostmi z uporabo linearnega programiranja.**
+
+Magistrsko delo obravnava vprašanje, ali obstaja večrazsežna kopula s predpisanimi vrednostmi v končno mnogo točkah, ki ga z linearnim programiranjem prevedemo na končen seznam neenakosti v podatkih.
+
+## Zgradba repozitorija
+
+- `porocilo/`: poročilo o dveh predpisanih točkah v treh dimenzijah (`dve_tocki_3d.pdf`, izvorna datoteka `dve_tocki_3d.tex`).
+- `koda_dve_tocki/`: koda v jeziku Python za dve predpisani točki, z zmanjšano in prvotno različico dualnega problema. Glej `koda_dve_tocki/README.md`.
+- `koda_tri_tocke/`: koda v jeziku Python za tri predpisane točke v dimenzijah od 3 do 5 (konfiguracije, zmanjšana različica, točna kontrola s programom Normaliz, naključno iskanje). Glej `koda_tri_tocke/README.md`.
+- `slike/`: vse slike iz magistrskega dela. Slike za poglavji o teoretičnem ozadju in pristopu narišeta `slike/slike_teorija_metode.py` in `slike/slika_incidencna_3d.py`, ostale pa skripte v mapah `koda_dve_tocki/` in `koda_tri_tocke/`.
+- `stari_poskusi/`: starejši poskusi v programu Mathematica z naključnimi primeri, ki jih hranimo za referenco, vendar jih ne uporabljamo več.
+
+## Zagon kode
+
+```bash
+cd koda_dve_tocki
+python3 -m venv venv
+./venv/bin/pip install pycddlib-standalone numpy scipy matplotlib pynormaliz
+./venv/bin/python dve_tocki.py 3+0
+```
+
+---
+
 # Existence of copulas with prescribed values using linear programming
 
-This repository contains the code and supplementary materials for the master’s thesis titled 
+This repository contains the code and supplementary materials for the master’s thesis titled
 **Existence of copulas with prescribed values using linear programming.**
 
-The thesis investigates the existence problem for multivariate copulas with prescribed values at finitely many points, formulated and studied via linear programming techniques.
+The thesis investigates the existence problem for multivariate copulas with prescribed values at finitely many points, formulated and studied via linear programming techniques. The thesis, the code comments and the subfolder READMEs are in Slovene.
 
 ## Repository structure
 
