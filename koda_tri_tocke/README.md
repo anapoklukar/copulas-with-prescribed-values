@@ -7,6 +7,7 @@ Koda za točko 3: za vsako konfiguracijo treh točk preverimo, ali kopula s pred
 | datoteka | kaj naredi |
 |---|---|
 | `konfiguracije.py` | našteje konfiguracije (K1 do K10) in nariše sliko `slike/slika_konfiguracije_3tocke.pdf` |
+| `stevilo_konfiguracij.py` | prešteje različne konfiguracije v dimenzijah od 3 do 7 (10, 24, 42, 83, 132), izpis `izhod_stevilo_konfiguracij.txt` |
 | `tocke.py` | sistem G v_n ≤ h za poljubno število točk in poljubno dimenzijo |
 | `testi.py` | preizkusi na primerih, kjer odgovor poznamo |
 | `tri_tocke.py` | preverjanje za eno ali vse konfiguracije |

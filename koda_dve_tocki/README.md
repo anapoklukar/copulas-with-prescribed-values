@@ -73,3 +73,6 @@ V dimenziji 7 je število oglišč v vseh štirih konfiguracijah enako 4d + 4 + 
 | `oglisca_normaliz.py` | oglišča prvotne različice s programom Normaliz |
 | `normaliz_4+0.txt` | dnevnik izračuna v 4D (prvotna različica), ustavljen pri 30 GB pomnilnika |
 | `rast_4d.py` | slika rasti števila vmesnih kombinacij v 4D (`slike/slika_rast_4d.pdf`) |
+| `slika_zahtevnost.py` | slika časa izračuna v odvisnosti od števila celic (`slike/slika_zahtevnost.pdf`) |
+| `slika_vozlisca.py` | slika določenih in nedoločenih vozlišč v 2D in 3D (`slike/slika_vozlisca.pdf`) |
+| `slika_razbitje_H.py` | slika razbitja incidenčne matrike na H_n in H_d za konfiguracijo 3+0 (`slike/slika_razbitje_H.pdf`) |
