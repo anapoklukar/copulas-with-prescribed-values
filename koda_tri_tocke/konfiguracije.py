@@ -52,17 +52,16 @@ if __name__ == "__main__":
 
     BARVA = {"A": "#2a78d6", "B": "#eb6834", "C": "#1baf7a"}     # preverjeno za barvno slepoto
     CRNILO, SIVO, MREZA = "#0b0b0b", "#52514e", "#d9d8d4"
-    plt.rcParams.update({"font.size": 9, "font.family": "DejaVu Sans"})
-    fig = plt.figure(figsize=(13.5, 8.6))
-    gs = fig.add_gridspec(4, 5, height_ratios=[3.0, 1.75, 3.0, 1.75], hspace=0.12, wspace=0.10,
-                          left=0.035, right=0.985, top=0.93, bottom=0.085)
+    plt.rcParams.update({"font.size": 8, "font.family": "DejaVu Sans"})
+    # mreža 3 x 4: deset kock, v zadnjih dveh poljih legenda; vrstni red na oseh je v tabeli v nalogi
+    fig = plt.figure(figsize=(6.3, 5.2))
+    gs = fig.add_gridspec(3, 4, hspace=0.28, wspace=0.02, left=0.03, right=0.99, top=0.95, bottom=0.02)
     lega = [0.2, 0.5, 0.8]                                        # položaj rangov 0, 1, 2
 
     oznake = []
     for t, k in enumerate(K):
-        vr, st = divmod(t, 5)
-        # --- zgoraj: točke v kocki ---
-        ax = fig.add_subplot(gs[2 * vr, st], projection="3d")
+        vr, st = divmod(t, 4)
+        ax = fig.add_subplot(gs[vr, st], projection="3d")
         ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.set_zlim(0, 1)
         ax.set_box_aspect((1, 1, 1)); ax.view_init(elev=20, azim=-58)
         ax.set_xticks([]); ax.set_yticks([]); ax.set_zticks([])
@@ -72,36 +71,25 @@ if __name__ == "__main__":
         for a, b in itertools.combinations(itertools.product([0, 1], repeat=3), 2):
             if sum(x != y for x, y in zip(a, b)) == 1:
                 ax.plot(*zip(a, b), color=MREZA, lw=0.8, zorder=1)
-        ax.text(0.5, -0.16, 0, "os 1", color=SIVO, fontsize=7, ha="center")
-        ax.text(1.16, 0.5, 0, "os 2", color=SIVO, fontsize=7, ha="center")
-        ax.text(-0.08, -0.08, 0.5, "os 3", color=SIVO, fontsize=7, ha="center")
+        ax.text(0.5, -0.18, 0, "os 1", color=SIVO, fontsize=6.5, ha="center")
+        ax.text(1.18, 0.5, 0, "os 2", color=SIVO, fontsize=6.5, ha="center")
+        ax.text(-0.1, -0.1, 0.5, "os 3", color=SIVO, fontsize=6.5, ha="center")
         for i, ime in enumerate(TOCKE):
             x, y, z = (lega[k[o][i]] for o in range(3))
             ax.plot([x, x], [y, y], [0, z], color=BARVA[ime], lw=1.0, alpha=0.55, zorder=2)   # navpičnica do tal
-            ax.scatter([x], [y], [0], s=10, color=BARVA[ime], alpha=0.55, zorder=2)
-            ax.scatter([x], [y], [z], s=95, color=BARVA[ime], edgecolors="white", linewidths=1.6,
+            ax.scatter([x], [y], [0], s=8, color=BARVA[ime], alpha=0.55, zorder=2)
+            ax.scatter([x], [y], [z], s=60, color=BARVA[ime], edgecolors="white", linewidths=1.2,
                        depthshade=False, zorder=5)
         oznake.append((ax, [tuple(lega[k[o][i]] for o in range(3)) for i in range(3)]))
         pari = tipi_parov(k)
-        ax.set_title(f"K{t + 1}", fontsize=11, fontweight="bold", color=CRNILO, pad=-2)
-        ax.text2D(0.5, 0.955, "   ".join(f"{p}: {v}" for p, v in pari.items()), transform=ax.transAxes,
-                  ha="center", va="top", fontsize=7.5, color=SIVO)
-
-        # --- spodaj: vrstni red točk na vsaki osi ---
-        bx = fig.add_subplot(gs[2 * vr + 1, st])
-        bx.set_xlim(-0.12, 1.06); bx.set_ylim(-0.75, 2.9); bx.axis("off")
-        for o in range(3):
-            yy = 2 - o
-            bx.plot([0.08, 0.92], [yy, yy], color=MREZA, lw=1.0, solid_capstyle="round", zorder=1)
-            bx.text(-0.02, yy, f"os {o + 1}", ha="right", va="center", fontsize=7.5, color=SIVO)
-            for i, ime in enumerate(TOCKE):
-                xx = lega[k[o][i]]
-                bx.scatter([xx], [yy], s=70, color=BARVA[ime], edgecolors="white", linewidths=1.6, zorder=3)
-                bx.text(xx, yy + 0.30, ime, ha="center", va="bottom", fontsize=7.5, color=CRNILO)
+        ax.set_title(f"K{t + 1}", fontsize=10, fontweight="bold", color=CRNILO, pad=8)
+        ax.text2D(0.5, 1.0, "  ".join(f"{p} {v}" for p, v in pari.items()), transform=ax.transAxes,
+                  ha="center", va="top", fontsize=6.5, color=SIVO)
 
     # črke ob točkah v kocki: izberemo stran, na kateri ne prekrijejo druge točke
     from mpl_toolkits.mplot3d import proj3d
     fig.canvas.draw()
+    smeri = [(0, 9), (-10, 0), (10, 0), (0, -10)]
     for ax, tocke in oznake:
         zaslon = [ax.transData.transform(proj3d.proj_transform(*q, ax.get_proj())[:2]) for q in tocke]
         for i, ime in enumerate(TOCKE):
@@ -109,15 +97,12 @@ if __name__ == "__main__":
             def prosto(odmik):
                 cilj = zaslon[i] + [c * fig.dpi / 72 for c in odmik]
                 return min(((cilj[0] - d[0]) ** 2 + (cilj[1] - d[1]) ** 2) ** 0.5 for d in drugi)
-            odmik = max([(0, 11), (-12, 0), (12, 0), (0, -13)], key=lambda o: (prosto(o) > 16 * fig.dpi / 72, -[(0, 11), (-12, 0), (12, 0), (0, -13)].index(o)))
+            odmik = max(smeri, key=lambda o: (prosto(o) > 13 * fig.dpi / 72, -smeri.index(o)))
             x2, y2 = proj3d.proj_transform(*tocke[i], ax.get_proj())[:2]
             ax.annotate(ime, xy=(x2, y2), xytext=odmik, textcoords="offset points", ha="center", va="center",
-                        fontsize=9, fontweight="bold", color=CRNILO, zorder=6)
+                        fontsize=8, fontweight="bold", color=CRNILO, zorder=6)
 
-    fig.suptitle("Konfiguracije treh točk v treh dimenzijah", fontsize=13, fontweight="bold", color=CRNILO, y=0.985)
+    lx = fig.add_subplot(gs[2, 2:]); lx.axis("off")
     rocaji = [Line2D([], [], marker="o", ls="", ms=8, mfc=BARVA[i], mec="white", mew=1.4, label=f"točka {i}") for i in TOCKE]
-    fig.legend(handles=rocaji, loc="lower left", bbox_to_anchor=(0.03, 0.012), ncol=3, frameon=False, fontsize=9)
-    fig.text(0.985, 0.03, "Na vsaki osi so točke razvrščene od najmanjše (levo) do največje (desno).   "
-             "Pod oznako konfiguracije je tip vsakega para točk.",
-             ha="right", va="center", fontsize=8.5, color=SIVO)
+    lx.legend(handles=rocaji, loc="center", frameon=False, fontsize=9)
     fig.savefig("../slike/slika_konfiguracije_3tocke.pdf"); fig.savefig("../slike/slika_konfiguracije_3tocke.png", dpi=150)
