@@ -1,6 +1,6 @@
-# Tri točke v treh dimenzijah
+# Tri točke v dimenzijah od 3 do 5
 
-Koda za točko 3: za vsako konfiguracijo treh točk preverimo, ali kopula s predpisanimi vrednostmi vedno obstaja.
+Za vsako konfiguracijo treh točk preverimo, ali kopula s predpisanimi vrednostmi vedno obstaja.
 
 ## Datoteke
 
@@ -38,21 +38,21 @@ Iz te mape, z okoljem, v katerem so nameščeni `pycddlib-standalone`, `numpy`, 
 Za vsako konfiguracijo:
 
 - število neznank in neenačb sistema,
-- število oglišč politopa združljivih podatkov,
+- število oglišč politopa podatkov,
 - v koliko ogliščih ima sistem rešitev (in koliko rešitev je točno preverjenih),
 - v koliko ogliščih rešitve ni (in za koliko je dokaz točno preverjen),
-- koliko od 1000 naključnih združljivih podatkov ima rešitev,
+- koliko od 1000 naključnih kvazi-kopula usklajenih podatkov ima rešitev,
 - do tri primere podatkov brez rešitve.
 
 Dokaz, da rešitve ni, je vsota neenačb sistema z nenegativnimi utežmi, v kateri se neznanke pokrajšajo, na desni pa ostane negativno število.
 
-Če ima sistem rešitev v vseh ogliščih politopa podatkov, ima rešitev za vse združljive podatke te konfiguracije. Če je v katerem oglišču nima, obstajajo združljivi podatki, za katere kopula ne obstaja.
+Če ima sistem rešitev v vseh ogliščih politopa podatkov, ima rešitev za vse kvazi-kopula usklajene podatke te konfiguracije. Če je v katerem oglišču nima, obstajajo kvazi-kopula usklajeni podatki, za katere kopula ne obstaja.
 
 ## Zmanjšana različica (`zmanjsano_tri.py`)
 
-Vsako oglišče stožca da linearno neenakost v podatkih. Neenakost je bodisi pogoj združljivosti (faseta politopa združljivih podatkov) bodisi dodaten pogoj.
+Vsako oglišče stožca da linearno neenakost v podatkih. Neenakost je bodisi bistven pogoj (faseta politopa podatkov) bodisi dodaten pogoj.
 
-| konfiguracija | oglišč | pogojev združljivosti | dodatnih |
+| konfiguracija | oglišč | bistvenih pogojev | dodatnih |
 |---|---|---|---|
 | K1 | 24 | 24 | 0 |
 | K2 | 28 | 26 | 2 |
@@ -65,13 +65,13 @@ Vsako oglišče stožca da linearno neenakost v podatkih. Neenakost je bodisi po
 | K9 | 29 | 27 | 2 |
 | K10 | 31 | 27 | 4 |
 
-V vseh konfiguracijah so vsi pogoji združljivosti med oglišči. Vsak dodaten pogoj je kršen v kakšnem oglišču politopa združljivih podatkov, zato v K1 in K3 kopula vedno obstaja, v ostalih osmih pa ne. To se ujema z izpisom `tri_tocke.py`.
+V vseh konfiguracijah so vsi bistveni pogoji med oglišči. Vsak dodaten pogoj je kršen v kakšnem oglišču politopa podatkov, zato v K1 in K3 kopula vedno obstaja, v ostalih osmih pa ne. To se ujema z izpisom `tri_tocke.py`.
 
 ## Štiri in pet dimenzij
 
-Konfiguracij je 24 v štirih in 42 v petih dimenzijah (preverjeno tudi z Burnsidovo lemo: 3456 / 144 in 30240 / 720). Kot v treh dimenzijah so vsi pogoji združljivosti med oglišči in vsak dodaten pogoj je kršen v kakšnem oglišču politopa združljivih podatkov.
+Konfiguracij je 24 v štirih in 42 v petih dimenzijah (preštevanje v `stevilo_konfiguracij.py`). Kot v treh dimenzijah so vsi bistveni pogoji med oglišči in vsak dodaten pogoj je kršen v kakšnem oglišču politopa podatkov.
 
-| dimenzija | konfiguracij | oglišč | pogojev združljivosti | število dodatnih pogojev (koliko konfiguracij) | čas na konfiguracijo |
+| dimenzija | konfiguracij | oglišč | bistvenih pogojev | število dodatnih pogojev (koliko konfiguracij) | čas na konfiguracijo |
 |---|---|---|---|---|---|
 | 3 | 10 | 24–32 | 24–28 | 0 (2), 2 (6), 4 (2) | manj kot 1 s |
 | 4 | 24 | 30–45 | 30–36 | 0 (3), 3 (8), 4 (6), 9 (7) | približno 1,5 s |

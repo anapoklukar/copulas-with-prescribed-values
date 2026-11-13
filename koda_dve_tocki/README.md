@@ -35,8 +35,12 @@ Konfiguracija `p+r` pomeni: dimenzija je p + r, prva točka je večja od druge v
 | 6 | 5+1 | – | 29 | 13 |
 | 6 | 4+2 | – | 30 | 14 |
 | 6 | 3+3 | – | 30 | 14 |
+| 7 | 7+0 | – | 32 | – |
+| 7 | 6+1 | – | 33 | – |
+| 7 | 5+2 | – | 34 | – |
+| 7 | 4+3 | – | 34 | – |
 
-V zmanjšani različici je vsaka dobljena neenakost en sam pogoj združljivosti podatkov (pogoja (3.2) in (3.3) iz članka) ali urejenost koordinat, in sicer v vseh konfiguracijah do dimenzije 6. Izpisi so v datotekah `izhod_zmanjsano_*.txt`, izpisa prvotne različice v treh dimenzijah pa v `izhod_brez_redukcije_*.txt`. Zagon v šestih dimenzijah traja približno minuto in pol.
+V zmanjšani različici je vsaka dobljena neenakost en sam bistven pogoj, torej pogoj kvazi-kopula usklajenosti (pogoja (3.2) in (3.3) iz članka) ali urejenost koordinat, in sicer v vseh konfiguracijah do dimenzije 6. V dimenziji 7 smo merili le čas in število oglišč (`zahtevnost_normaliz.csv`), zato tam oglišč do zamenjave koordinat nismo šteli. Izpisi so v datotekah `izhod_zmanjsano_*.txt`, izpisa prvotne različice v treh dimenzijah pa v `izhod_brez_redukcije_*.txt`. Zagon v šestih dimenzijah traja približno minuto in pol.
 
 ## Zahtevnost (zmanjšana različica)
 
